@@ -8,11 +8,14 @@ import { LandingPageComponent } from './landing-page/landing-page.component';
 import { FirstComponent } from './landing-page/first/first.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import {MatTabsModule} from "@angular/material/tabs";
 import {MatSliderModule} from "@angular/material/slider";
 
 import {Routes, RouterModule, Router} from "@angular/router";
 import { ProfileComponent } from './profile/profile.component';
 import { StockComponent } from './stock/stock.component';
+import { HeaderComponent } from './header/header.component';
+import { FooterComponent } from './footer/footer.component';
 
 const routes: Routes = [
   {path: "", component: LandingPageComponent},
@@ -28,13 +31,16 @@ const routes: Routes = [
     LandingPageComponent,
     FirstComponent,
     ProfileComponent,
-    StockComponent
+    StockComponent,
+    HeaderComponent,
+    FooterComponent
   ],
   
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
+    MatTabsModule,
     MatSliderModule,
     RouterModule.forRoot(routes)
   ],
