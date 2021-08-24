@@ -32,9 +32,6 @@ import { CandlestickChartComponent } from './candlestick-chart/candlestick-chart
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
-// external libraries
-import { NgxEchartsModule } from 'ngx-echarts';
-
 const routes: Routes = [
   {path: "", component: LandingPageComponent},
   {path: "color-scheme", component: ColorSchemeComponent},
