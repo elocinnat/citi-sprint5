@@ -38,15 +38,14 @@ export class CandlestickChartComponent implements OnInit {
     xaxis: {
       autorange: true, 
       domain: [0, 1], 
-      range: ['2017-01-03 12:00', '2017-02-15 12:00'], 
-      rangeslider: {range: ['2017-01-03 12:00', '2017-02-15 12:00']}, 
+      range: ['2020-08-01 12:00', '2021-08-31 12:00'], 
+      rangeslider: {range: ['2020-08-01 12:00', '2021-08-31 12:00']}, 
       title: 'Date', 
       type: 'date'
     }, 
     yaxis: {
       autorange: true, 
       domain: [0, 1], 
-      range: [114.609999778, 137.410004222], 
       type: 'linear'
   }
 
