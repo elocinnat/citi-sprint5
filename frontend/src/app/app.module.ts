@@ -29,6 +29,11 @@ import {HttpClientModule} from "@angular/common/http";
 import * as PlotlyJS from "plotly.js-dist-min";
 import { PlotlyModule } from 'angular-plotly.js';
 import { CandlestickChartComponent } from './candlestick-chart/candlestick-chart.component';
+import { UserHoldingsComponent } from './profile/user-holdings/user-holdings.component';
+import { TradingHistoryComponent } from './profile/trading-history/trading-history.component';
+import { TradeStatusComponent } from './profile/trade-status/trade-status.component';
+import { UserInfoComponent } from './profile/user-info/user-info.component';
+import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -53,6 +58,10 @@ const routes: Routes = [
     TopGainersLosersComponent,
     StatusOverviewComponent,
     CandlestickChartComponent,
+    UserHoldingsComponent,
+    TradingHistoryComponent,
+    TradeStatusComponent,
+    UserInfoComponent,
   ],
   
   imports: [
@@ -70,6 +79,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     HttpClientModule,
     PlotlyModule,
+    NgbModule,
   ],
 
   exports: [

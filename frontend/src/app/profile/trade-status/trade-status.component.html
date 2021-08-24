@@ -1,0 +1,19 @@
+<h3>Status of trades</h3>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th scope="col">Symbol</th>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Status</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let trade of tradeStatus">
+            <td>{{ trade.symbol }}</td>
+            <td>{{ trade.name }}</td>
+            <td>{{ trade.type }}</td>
+            <td>$ {{ trade.status }}</td>
+        </tr>
+    </tbody>
+</table>

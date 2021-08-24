@@ -1,0 +1,23 @@
+<h3>Overview of holdings</h3>
+<table class="table table-striped">
+    <thead>
+    <tr>
+      <th scope="col">Symbol</th>
+      <th scope="col">Name</th>
+      <th scope="col">Quantity of Stocks</th>
+      <th scope="col">Stock Price</th>
+      <th scope="col">Total Valuation</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr *ngFor="let stock of stocks">
+      <td>{{ stock.symbol }}</td>
+      <td>{{ stock.name }}</td>
+      <td>{{ stock.qty }}</td>
+      <td>$ {{ stock.stockPrice | number }}</td>
+      <td>$ {{ stock.totalValuation | number }}</td>
+    </tr>
+    </tbody>
+  </table>
+<!-- potential pie chart here -->
+<!-- <div echarts [options]="chartOption" class="demo-chart"></div> -->
