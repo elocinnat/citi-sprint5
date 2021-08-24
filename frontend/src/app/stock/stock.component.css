@@ -1,3 +1,15 @@
+.stock-name {
+
+}
+
+.current-price {
+    font-size: 36px;
+}
+
+.stock-description {
+
+}
+
 .left {
     grid-area: left;
 }

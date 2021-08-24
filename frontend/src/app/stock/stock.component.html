@@ -2,13 +2,19 @@
 
             <div class="container shadow left">
 
-                <h2>
-                    {{name}} ({{symbol}}) - ${{currentPrice}}
+                <h2 class="stock-name">
+                    {{name}} ({{symbol}})
                 </h2>
+
+                <div class="current-price">
+                    ${{currentPrice}} SGD
+                </div>
+
+                <br><br>
 
                 candlestick chart goes here
 
-                <p>
+                <p class="stock-description">
                     {{description}}
                 </p>
 
@@ -56,9 +62,9 @@
                     <input matInput placeholder="Quantity">
                 </mat-form-field>
 
-                <br>
+                <br><br>
 
-                <button mat-stroked-button>
+                <button mat-stroked-button class="button">
                     Make Trade
                 </button>
 
