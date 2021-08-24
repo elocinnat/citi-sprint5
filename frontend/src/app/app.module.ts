@@ -14,6 +14,9 @@ import {Routes, RouterModule, Router} from "@angular/router";
 import { ProfileComponent } from './profile/profile.component';
 import { StockComponent } from './stock/stock.component';
 
+// external libraries
+import { NgxEchartsModule } from 'ngx-echarts';
+
 const routes: Routes = [
   {path: "", component: LandingPageComponent},
   {path: "color-scheme", component: ColorSchemeComponent},
@@ -36,7 +39,10 @@ const routes: Routes = [
     AppRoutingModule,
     BrowserAnimationsModule,
     MatSliderModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    NgxEchartsModule.forRoot({
+      echarts: () => import('echarts')
+    })
   ],
 
   exports: [
