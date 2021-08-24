@@ -1,15 +1,10 @@
-.search {grid-area: top;}
-.overview {grid-area: right;}
-.market-index {grid-area: middle;}
-.top-gainers-losers {grid-area: bottom;}
-
+.search {grid-column: 1;}
+.overview {grid-column: 2;}
+.market-index {grid-column: 1;}
+.top-gainers-losers {grid-column: 1;}
 
 .grid-container {
     display: grid;
-    grid-template-areas:
-        'top top top right'
-        'middle middle middle right'
-        'bottom bottom bottom right';
-
+    grid-template-columns: 67% 33%;
     grid-gap: 16px;
 }

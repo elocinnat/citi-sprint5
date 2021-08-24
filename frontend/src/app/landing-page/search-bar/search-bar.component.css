@@ -1,20 +1,19 @@
 .searchbar {
-    grid-area: left;
+    grid-column: 1;
     width: 100%
 }
 
 .searchbutton {
-    grid-area:right;
-}
-
-.button {
-    top: 20%;
+    grid-column: 2;
+    margin: auto;
+    width: 100%;
 }
 
 .grid-container {
     display: grid;
-    grid-template-areas:
-        'left left left right';
+    grid-template-columns: 75% 25%;
     grid-gap: 16px;
     
+    margin: 0px;
+    padding: 0px 5% 0px 5%;
 }

@@ -10,19 +10,12 @@
 
 }
 
-.left {
-    grid-area: left;
-}
-
-.right {
-    grid-area: right;
-}
+.left {grid-column:1;}
+.right {grid-column: 2;}
 
 .grid-container {
     display: grid;
-    grid-template-areas:
-        'left left right'
-        'left left right';
+    grid-template-columns: 67% 33%;
     grid-gap: 16px;
 }
 

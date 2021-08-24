@@ -1,19 +1,14 @@
 .top-gainers {
-    grid-area: left
+    grid-column: 1;
 }
 
 .top-losers {
-    grid-area: middle
-}
-
-.insights {
-    grid-area: right
+    grid-column: 2;
 }
 
 .grid-container {
     display: grid;
-    grid-template-areas: 
-        'left middle';
+    grid-template-columns: 50% 50%;
     grid-gap: 16px
 }
 
