@@ -10,18 +10,18 @@ html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .container-large {
-    margin: 32px 128px 32px 128px;
-    padding: 32px 128px 32px 128px;
+    margin: 1% 5% 1% 5%;
+    padding: 1% 5% 1% 5%;
 }
 
 .container {
     margin: 0px;
-    padding: 32px
+    padding: 5%
 }
 
 .container-small {
     margin: 0px;
-    padding: 16px
+    padding: 2%
 }
 
 .row {
