@@ -12,16 +12,16 @@ export class StockComponent implements OnInit {
   symbol: any;
   name: string = "";
   description: string = "";
-  current_price: number = 0.0;
-  historical_price: any;
+  currentPrice: number = 0.0;
+  historicalPrice: any;
 
   constructor(private route: ActivatedRoute) {}
 
   ngOnInit(): void {
     this.symbol = this.route.snapshot.paramMap.get("symbol");
-    this.name = "Bitcoin"
-    this.description = "bitcoin description";
-    this.current_price = 64000;
+    this.name = "Stock name"
+    this.description = "stock description";
+    this.currentPrice = 64000;
 
   }
 

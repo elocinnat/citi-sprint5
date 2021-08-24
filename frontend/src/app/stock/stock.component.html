@@ -1,4 +1,48 @@
-<p>{{symbol}}</p>
-<p>{{name}}</p>
-<p>{{description}}</p>
-{{current_price}}
+<div class="container-large">
+    
+    <div class="row shadow">
+        
+        <!-- left panel -->
+        <div class="col8 shadow">
+            <div class="container">
+
+                <h2>
+                    {{name}} ({{symbol}}) - ${{currentPrice}}
+                </h2>
+
+                candlestick chart goes here
+
+                <p>
+                    {{description}}
+                </p>
+
+            </div>
+        </div>
+
+        <!-- right panel -->
+        <div class="col4 col-side shadow">
+            <div class="container">
+                
+                <h3>Make a Trade</h3>
+
+                <mat-button-toggle-group>
+
+                    <mat-button-toggle 
+                        class="buysell-toggle"
+                        checked="true">
+                        Buy
+                    </mat-button-toggle>
+
+                    <mat-button-toggle class="buysell-toggle">
+                        Sell
+                    </mat-button-toggle>
+
+                </mat-button-toggle-group>
+
+
+            </div>
+        </div>
+
+    </div>
+
+</div>
