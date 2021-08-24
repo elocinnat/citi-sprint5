@@ -1,13 +1,19 @@
-.container {
-    margin: 0px;
-    padding: 32px;
+.searchbar {
+    grid-column: 1;
+    width: 100%
 }
 
-.stock-search-form {
-    min-width: 200px;
-    width:100%;
-}
-
-.full-width {
+.searchbutton {
+    grid-column: 2;
+    margin: auto;
     width: 100%;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 75% 25%;
+    grid-gap: 16px;
+    
+    margin: 0px;
+    padding: 0px 5% 0px 5%;
 }

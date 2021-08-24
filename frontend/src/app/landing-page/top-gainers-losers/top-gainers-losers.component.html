@@ -1,3 +1,30 @@
-<div style="background-color: pink">
-    top gainers n losers here
+<div class="container">
+    <div class="grid-container">
+
+        <div class="top-gainers shadow container">
+            
+            <p>Top Gainers Today</p>
+
+            <mat-list role="list">
+                <mat-list-item
+                    *ngFor="let stock of topGainers">
+                    {{stock.symbol}} - {{stock.name}}
+                </mat-list-item>
+            </mat-list>
+
+        </div>
+
+        <div class="top-losers shadow container">
+
+            <p>Top Losers Today</p>
+
+            <mat-list role="list">
+                <mat-list-item
+                    *ngFor="let stock of topLosers">
+                    {{stock.symbol}} - {{stock.name}}
+                </mat-list-item>
+            </mat-list>
+        </div>
+
+    </div>
 </div>

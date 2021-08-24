@@ -1,0 +1,17 @@
+.top-gainers {
+    grid-column: 1;
+}
+
+.top-losers {
+    grid-column: 2;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-gap: 16px
+}
+
+.container {
+    padding: 8%
+}
