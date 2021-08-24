@@ -49,3 +49,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 .shadow {
     box-shadow: 0 2px 4px grey
 }
+
+/* div {
+    box-shadow: 0 2px 4px grey
+} */
