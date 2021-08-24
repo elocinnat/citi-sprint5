@@ -1,0 +1,15 @@
+.search {grid-area: top;}
+.overview {grid-area: right;}
+.market-index {grid-area: middle;}
+.top-gainers-losers {grid-area: bottom;}
+
+
+.grid-container {
+    display: grid;
+    grid-template-areas:
+        'top top top right'
+        'middle middle middle right'
+        'bottom bottom bottom right';
+
+    grid-gap: 16px;
+}

@@ -1,10 +1,6 @@
-<div class="container-large">
-    
-    <div class="row shadow">
-        
-        <!-- left panel -->
-        <div class="col8 shadow">
-            <div class="container">
+<div class="container-large grid-container">
+
+            <div class="container shadow left">
 
                 <h2>
                     {{name}} ({{symbol}}) - ${{currentPrice}}
@@ -17,15 +13,14 @@
                 </p>
 
             </div>
-        </div>
 
         <!-- right panel -->
-        <div class="col4 col-side shadow">
-            <div class="container">
-                
-                <h3>Make a Trade</h3>
 
-                <mat-button-toggle-group>
+            <div class="container shadow right">
+                
+                <h2>Make a Trade</h2>
+
+                <mat-button-toggle-group name="buy-sell">
 
                     <mat-button-toggle 
                         class="buysell-toggle"
@@ -33,16 +28,42 @@
                         Buy
                     </mat-button-toggle>
 
-                    <mat-button-toggle class="buysell-toggle">
+                    <mat-button-toggle>
                         Sell
                     </mat-button-toggle>
 
                 </mat-button-toggle-group>
 
+                <br>
+
+                <p>Select Your Order Type:</p>
+
+                <mat-button-toggle-group name="limit-market">
+
+                    <mat-button-toggle checked="true">
+                        Limit
+                    </mat-button-toggle>
+
+                    <mat-button-toggle>
+                        Market
+                    </mat-button-toggle>
+
+                </mat-button-toggle-group>
+
+                <p>Enter Quantity:</p>
+
+                <mat-form-field>
+                    <input matInput placeholder="Quantity">
+                </mat-form-field>
+
+                <br>
+
+                <button mat-stroked-button>
+                    Make Trade
+                </button>
+
 
             </div>
-        </div>
 
-    </div>
 
 </div>
