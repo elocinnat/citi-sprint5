@@ -6,4 +6,24 @@ html {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 html, body { height: 100%; }
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.container {
+    margin: 32px 128px 32px 128px;
+    padding: 32px 128px 32px 128px;
+}
+
+.row .col8 {
+    display: inline-block;
+    width: 66%;
+}
+
+.row .col4 {
+    display: inline-block;
+    width: 33%;
+}
+
+.shadow {
+    box-shadow: 0 2px 4px grey
+}

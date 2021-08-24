@@ -1,0 +1,13 @@
+.container {
+    margin: 0px;
+    padding: 32px;
+}
+
+.stock-search-form {
+    min-width: 200px;
+    width:100%;
+}
+
+.full-width {
+    width: 100%;
+}
