@@ -1,6 +1,5 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
-import { Observable, throwError } from 'rxjs';
+import {RestService} from "../../rest-services";
 
 @Component({
   selector: 'app-market-index',
@@ -9,8 +8,6 @@ import { Observable, throwError } from 'rxjs';
 })
 
 export class MarketIndexComponent implements OnInit {
-
-  url: string;
 
   metaData:any;
 
@@ -32,9 +29,7 @@ export class MarketIndexComponent implements OnInit {
   priceChange: any;
   pricePercentageChange: any;
 
-  constructor(private http: HttpClient) {
-    this.url = "http://localhost:8000/snp500"
-  }
+  constructor(private restService: RestService) {}
 
   setHistoricalPrices() {
     // this.http.get<any>(this.bitcoinUrl)
@@ -43,8 +38,8 @@ export class MarketIndexComponent implements OnInit {
     //                   console.log("bitcoin price", this.bitcoinPrice)
     //                 })
 
-    this.http.get<any>(this.url)
-              .subscribe((response) => {
+    this.restService.getSnp500()
+              .subscribe((response: any) => {
                 this.priceData.x = response.data.date;
                 this.priceData.open = response.data.open;
                 this.priceData.close =  response.data.close;
