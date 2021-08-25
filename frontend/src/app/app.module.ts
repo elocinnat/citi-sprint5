@@ -15,6 +15,7 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {MatButtonModule} from "@angular/material/button";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatList, MatListModule} from "@angular/material/list";
+import {MatTableModule} from "@angular/material/table";
 
 import {Routes, RouterModule, Router} from "@angular/router";
 import { ProfileComponent } from './profile/profile.component';
@@ -68,6 +69,7 @@ const routes: Routes = [
     MatButtonModule,
     MatButtonToggleModule,
     MatListModule,
+    MatTableModule,
 
     RouterModule.forRoot(routes),
     HttpClientModule,
