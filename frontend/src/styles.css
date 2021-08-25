@@ -21,7 +21,7 @@ body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
 
 .container-small {
     margin: 0px;
-    padding: 2%
+    padding: 2% 2% 2% 2%;
 }
 
 .row {

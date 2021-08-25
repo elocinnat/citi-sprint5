@@ -15,6 +15,9 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import {MatButtonModule} from "@angular/material/button";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatList, MatListModule} from "@angular/material/list";
+import {MatTableModule} from "@angular/material/table";
+import {MatDividerModule} from "@angular/material/divider";
+import {MatIconModule} from "@angular/material/icon";
 
 import {Routes, RouterModule, Router} from "@angular/router";
 import { ProfileComponent } from './profile/profile.component';
@@ -35,6 +38,8 @@ import { TradingHistoryComponent } from './profile/trading-history/trading-histo
 import { TradeStatusComponent } from './profile/trade-status/trade-status.component';
 import { UserInfoComponent } from './profile/user-info/user-info.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { TableComponent } from './table/table.component';
+import { GainerLoserRowComponent } from './landing-page/top-gainers-losers/gainer-loser-row/gainer-loser-row.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -63,6 +68,9 @@ const routes: Routes = [
     TradingHistoryComponent,
     TradeStatusComponent,
     UserInfoComponent,
+    TableComponent,
+    GainerLoserRowComponent,
+
   ],
   
   imports: [
@@ -77,6 +85,9 @@ const routes: Routes = [
     MatButtonModule,
     MatButtonToggleModule,
     MatListModule,
+    MatTableModule,
+    MatDividerModule,
+    MatIconModule,
 
     RouterModule.forRoot(routes),
     HttpClientModule,

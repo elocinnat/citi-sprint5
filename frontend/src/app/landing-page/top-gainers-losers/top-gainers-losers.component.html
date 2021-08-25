@@ -1,29 +1,42 @@
-<div class="container">
+<div style="padding:4%">
     <div class="grid-container">
 
-        <div class="top-gainers shadow container">
+        <div class="top-gainers container shadow">
             
-            <p>Top Gainers Today</p>
+            <h3 class="title">Top Gainers</h3>
 
-            <mat-list role="list">
-                <mat-list-item
-                    *ngFor="let stock of topGainers">
-                    {{stock.symbol}} - {{stock.name}}
-                </mat-list-item>
-            </mat-list>
+            <br>
+
+            <div *ngFor="let stock of topGainers; let i=index">
+                <app-gainer-loser-row [data]="stock" color="limegreen" icon="arrow_drop_up">
+                </app-gainer-loser-row>
+                
+                <span *ngIf="i < topGainers.length-1">
+                    <br>
+                    <mat-divider style="width:100%"></mat-divider>
+                    <br>
+                </span>
+            </div>
 
         </div>
 
-        <div class="top-losers shadow container">
+        <div class="top-losers container shadow">
 
-            <p>Top Losers Today</p>
+            <h3 class="title">Top Losers</h3>
 
-            <mat-list role="list">
-                <mat-list-item
-                    *ngFor="let stock of topLosers">
-                    {{stock.symbol}} - {{stock.name}}
-                </mat-list-item>
-            </mat-list>
+            <br>
+
+            <div *ngFor="let stock of topLosers; let i=index">
+                <app-gainer-loser-row [data]="stock" color="red" icon="arrow_drop_down">
+                </app-gainer-loser-row>
+                
+                <span *ngIf="i < topGainers.length-1">
+                    <br>
+                    <mat-divider style="width:100%"></mat-divider>
+                    <br>
+                </span>
+            </div>
+
         </div>
 
     </div>

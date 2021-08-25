@@ -1,6 +1,31 @@
-<div style="width:100%">
+<div class="container">
+
+    <div class="grid-container">
+        <div class="left">
+            <h1>Market Today</h1>
+        </div>
+
+        <div class="right price ">
+            <div>
+                ${{currentPrice}} ({{metaData.currency}})
+            </div>
+        </div>
+
+        <div class="left">
+            <div>
+                {{metaData.name}} ({{metaData.symbol}})
+            </div>
+        </div>
+
+        <div class="right price-change ">
+            {{priceChange}} ( +{{pricePercentageChange}} % )
+        </div>
+
+    </div>
+
+    <br><br>
     
-    <app-candlestick-chart [data]="arkkData"></app-candlestick-chart>
+    <app-candlestick-chart [data]="[priceData]"></app-candlestick-chart>
 
 </div>
 

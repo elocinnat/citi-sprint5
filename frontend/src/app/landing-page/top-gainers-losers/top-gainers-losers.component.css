@@ -15,3 +15,16 @@
 .container {
     padding: 8%
 }
+
+.title {
+    margin: auto;
+    text-align: center;
+}
+
+.top-gainers .change {
+    color: limegreen;
+}
+
+.top-losers .change {
+    color: red;
+}
