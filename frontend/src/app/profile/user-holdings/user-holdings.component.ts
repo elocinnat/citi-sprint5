@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 interface UserHoldings{
   symbol: string;
@@ -8,29 +8,29 @@ interface UserHoldings{
   totalValuation: number;
 }
 
-const STOCKS: UserHoldings[] = [
-  {
-    symbol: 'TSLA',
-    name: 'Tesla, Inc.',
-    qty: 2,
-    stockPrice: 223,
-    totalValuation: 1500
-  },
-  {
-    symbol: 'C',
-    name: 'Citigroup Inc.',
-    qty: 10,
-    stockPrice: 223,
-    totalValuation: 720
-  },
-  {
-    symbol: 'NFLX',
-    name: 'Netflix, Inc.',
-    qty: 1,
-    stockPrice: 223,
-    totalValuation: 550
-  },
-]
+// const STOCKS: UserHoldings[] = [
+//   {
+//     symbol: 'TSLA',
+//     name: 'Tesla, Inc.',
+//     qty: 2,
+//     stockPrice: 223,
+//     totalValuation: 1500
+//   },
+//   {
+//     symbol: 'C',
+//     name: 'Citigroup Inc.',
+//     qty: 10,
+//     stockPrice: 223,
+//     totalValuation: 720
+//   },
+//   {
+//     symbol: 'NFLX',
+//     name: 'Netflix, Inc.',
+//     qty: 1,
+//     stockPrice: 223,
+//     totalValuation: 550
+//   },
+// ]
 
 @Component({
   selector: 'app-user-holdings',
@@ -39,7 +39,10 @@ const STOCKS: UserHoldings[] = [
 })
 export class UserHoldingsComponent implements OnInit {
 
-  stocks = STOCKS;
+  // stocks = STOCKS;
+
+  @Input()
+  userAssets: any;
 
   constructor() { }
 

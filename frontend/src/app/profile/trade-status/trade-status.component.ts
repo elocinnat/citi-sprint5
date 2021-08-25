@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 interface TradeStatus{
   symbol: string;
@@ -7,32 +7,32 @@ interface TradeStatus{
   status: string;
 }
 
-const TRADESTATUS: TradeStatus[] = [
-  {
-    symbol: 'AAPL',
-    name: 'Apple Inc.',
-    type: 'Buy',
-    status: 'Rejected'
-  },
-  {
-    symbol: 'AAPL',
-    name: 'Apple Inc.',
-    type: 'Buy',
-    status: 'Rejected'
-  },
-  {
-    symbol: 'AAPL',
-    name: 'Apple Inc.',
-    type: 'Buy',
-    status: 'Filled'
-  },
-  {
-    symbol: 'AAPL',
-    name: 'Apple Inc.',
-    type: 'Buy',
-    status: 'Processing'
-  },
-] 
+// const TRADESTATUS: TradeStatus[] = [
+//   {
+//     symbol: 'AAPL',
+//     name: 'Apple Inc.',
+//     type: 'Buy',
+//     status: 'Rejected'
+//   },
+//   {
+//     symbol: 'AAPL',
+//     name: 'Apple Inc.',
+//     type: 'Buy',
+//     status: 'Rejected'
+//   },
+//   {
+//     symbol: 'AAPL',
+//     name: 'Apple Inc.',
+//     type: 'Buy',
+//     status: 'Filled'
+//   },
+//   {
+//     symbol: 'AAPL',
+//     name: 'Apple Inc.',
+//     type: 'Buy',
+//     status: 'Processing'
+//   },
+// ] 
 
 @Component({
   selector: 'app-trade-status',
@@ -41,8 +41,11 @@ const TRADESTATUS: TradeStatus[] = [
 })
 export class TradeStatusComponent implements OnInit {
 
-  tradeStatus = TRADESTATUS;
+  // tradeStatus = TRADESTATUS;
   
+  @Input()
+  userStatus:any;
+
   constructor() { }
 
   ngOnInit(): void {

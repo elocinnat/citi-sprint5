@@ -23,6 +23,10 @@ export class RestService {
         return this.http.get(this.backendUrl + "/user/asset")
     }
 
+    getUserHist(): any {
+        return this.http.get(this.backendUrl + '/user/history')
+    }
+
     getSearchStock(symbol: string): any {
         return this.http.get(this.backendUrl + "/search/" + symbol)
     }

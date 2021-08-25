@@ -1,5 +1,5 @@
 <h5>Overview of holdings</h5>
-<table class="table table-striped">
+<table class="table table-striped mat-elevation-z8">
     <thead>
     <tr>
       <th scope="col">Symbol</th>
@@ -7,15 +7,17 @@
       <th scope="col">Quantity of Stocks</th>
       <th scope="col">Stock Price</th>
       <th scope="col">Total Valuation</th>
+      <th scope="col">Profit/Loss (%)</th>
     </tr>
     </thead>
     <tbody>
-    <tr *ngFor="let stock of stocks">
-      <td>{{ stock.symbol }}</td>
+    <tr *ngFor="let stock of userAssets">
+      <td>{{ stock.ticker }}</td>
       <td>{{ stock.name }}</td>
       <td>{{ stock.qty }}</td>
-      <td>$ {{ stock.stockPrice | number }}</td>
-      <td>$ {{ stock.totalValuation | number }}</td>
+      <td>$ {{ stock.tradedPrice | number }}</td>
+      <td>$ {{ stock.valuation | number }}</td>
+      <td>{{ stock.pnl }}</td>
     </tr>
     </tbody>
   </table>

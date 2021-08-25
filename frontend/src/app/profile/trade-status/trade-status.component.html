@@ -1,19 +1,21 @@
 <h5>Status of trades</h5>
-<table class="table table-striped">
+<table class="table table-striped mat-elevation-z8">
     <thead>
         <tr>
             <th scope="col">Symbol</th>
-            <th scope="col">Name</th>
             <th scope="col">Type</th>
+            <th scope="col">Quantity</th>
+            <th scope="col">Price</th>
             <th scope="col">Status</th>
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let trade of tradeStatus">
-            <td>{{ trade.symbol }}</td>
-            <td>{{ trade.name }}</td>
+        <tr *ngFor="let trade of userStatus">
+            <td>{{ trade.ticker }}</td>
             <td>{{ trade.type }}</td>
-            <td>{{ trade.status }}</td>
+            <td>{{ trade.quantity }}</td>
+            <td>$ {{ trade.price | number}}</td>
+            <td>{{ trade.state }}</td>
         </tr>
     </tbody>
 </table>
