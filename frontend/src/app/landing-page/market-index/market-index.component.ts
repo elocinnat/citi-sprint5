@@ -32,11 +32,6 @@ export class MarketIndexComponent implements OnInit {
   constructor(private restService: RestService) {}
 
   setHistoricalPrices() {
-    // this.http.get<any>(this.bitcoinUrl)
-    //                 .subscribe((data) => {
-    //                   this.bitcoinPrice = data
-    //                   console.log("bitcoin price", this.bitcoinPrice)
-    //                 })
 
     this.restService.getSnp500()
               .subscribe((response: any) => {
