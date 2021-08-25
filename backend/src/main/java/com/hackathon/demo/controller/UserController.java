@@ -9,6 +9,7 @@ import com.hackathon.demo.service.TradeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -32,6 +33,7 @@ public class UserController {
         return tradeRepository.findAll();
     }
 
+    @CrossOrigin("*")
     @GetMapping("/user/asset")
     @ResponseBody
     public Iterable<Asset> getUserAssets(){

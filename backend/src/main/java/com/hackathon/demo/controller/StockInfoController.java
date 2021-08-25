@@ -21,20 +21,20 @@ public class StockInfoController {
     @Autowired
     private StockInfoServiceImpl stockInformation;
 
-
     @GetMapping("/")
     public String home(Model model){
         model.addAttribute("model");
         return "home";
     }
 
+    @CrossOrigin("*")
     @GetMapping ("/search/{stock}")
     @ResponseBody
-    public String handleStockPrice(@PathVariable String stock) throws IOException {
+    public Stock handleStockPrice(@PathVariable String stock) throws IOException {
         log.info("Stock Description for "+stock);
         stockInformation.getResponseBody(stock);
         Stock tmpStock = new Stock(stock, stockInformation.getName(), stockInformation.getPrice(), stockInformation.getDescription());
-        return tmpStock.toString();
+        return tmpStock;
     }
 
 
