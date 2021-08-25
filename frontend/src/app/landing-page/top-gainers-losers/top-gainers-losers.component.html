@@ -1,29 +1,24 @@
-<div class="container">
+<div style="padding:4%">
     <div class="grid-container">
 
-        <div class="top-gainers shadow container">
+        <div class="top-gainers">
             
-            <p>Top Gainers Today</p>
+            <h3 class="title">Top Gainers</h3>
 
-            <mat-list role="list">
-                <mat-list-item
-                    *ngFor="let stock of topGainers">
-                    {{stock.symbol}} - {{stock.name}}
-                </mat-list-item>
-            </mat-list>
+            <br>
+
+            <app-table [data]="topGainers"></app-table>
 
         </div>
 
-        <div class="top-losers shadow container">
+        <div class="top-losers">
 
-            <p>Top Losers Today</p>
+            <h3 class="title">Top Losers</h3>
 
-            <mat-list role="list">
-                <mat-list-item
-                    *ngFor="let stock of topLosers">
-                    {{stock.symbol}} - {{stock.name}}
-                </mat-list-item>
-            </mat-list>
+            <br>
+
+            <app-table [data]="topLosers"></app-table>
+
         </div>
 
     </div>

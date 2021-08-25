@@ -15,3 +15,8 @@
 .container {
     padding: 8%
 }
+
+.title {
+    margin: auto;
+    text-align: center;
+}

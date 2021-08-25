@@ -31,6 +31,7 @@ import {HttpClientModule} from "@angular/common/http";
 import * as PlotlyJS from "plotly.js-dist-min";
 import { PlotlyModule } from 'angular-plotly.js';
 import { CandlestickChartComponent } from './candlestick-chart/candlestick-chart.component';
+import { TableComponent } from './table/table.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -55,6 +56,7 @@ const routes: Routes = [
     TopGainersLosersComponent,
     StatusOverviewComponent,
     CandlestickChartComponent,
+    TableComponent,
   ],
   
   imports: [
