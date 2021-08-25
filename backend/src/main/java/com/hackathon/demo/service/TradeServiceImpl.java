@@ -41,17 +41,35 @@ public class TradeServiceImpl implements TradeService{
     }
 
     @Override
-    public boolean handleUserCurrency(Trade trade){
+    @Transactional
+    public boolean checkUserAsset(Trade trade) throws IOException {
         double amount = trade.getPrice()*trade.getQuantity();
-        if (trade.getType().equals(TradeType.BUY)&& user.currency>amount){
-            user.currency = user.currency-amount;
+        if (trade.getType().equals(TradeType.BUY)){
+            if (user.currency>=amount){
+                handleBuyAsset(trade);
+                user.currency = user.currency-amount;
+                return true;
+            }
+            return false;
+        }
+        else{
+            if ((assetRepository.findAllByTicker(trade.getTicker()).size()>0)
+                    &&checkAssetQty(trade)){
+                handleSellAsset(trade);
+                user.currency = user.currency+amount;
+                return true;
+            }
+            else {return false;}
+        }
+    }
+
+    public boolean checkAssetQty(Trade trade){
+        Asset thisAsset = new Asset();
+        thisAsset = assetRepository.findByTicker(trade.getTicker()).get(0);
+        if (thisAsset.getQty()>=trade.getQuantity()){
             return true;
         }
-        else if (trade.getType().equals(TradeType.SELL)){
-            user.currency = user.currency+amount;
-            return true;
-        }
-        return false;
+        else {return false;}
     }
 
     @Transactional
@@ -68,9 +86,8 @@ public class TradeServiceImpl implements TradeService{
         List<Trade> foundTrades = tradeRepository.findByState("PROCESSING");
 
         for(Trade thisTrade: foundTrades) {
-            if(handleUserCurrency(thisTrade)) {
+            if(checkUserAsset(thisTrade)) {
                 thisTrade.setState(TradeState.FILLED);
-                handleAsset(thisTrade);
             }
             else {
                 thisTrade.setState(TradeState.REJECTED);
@@ -79,27 +96,46 @@ public class TradeServiceImpl implements TradeService{
         }
     }
 
-    @Scheduled(fixedRateString = "${scheduleRateMs:10000}")
+
     @Override
-    public void processTrades() throws IOException {
-        findTradesForFilling();
-        findTradesForProcessing();
+    @Transactional
+    public void handleBuyAsset(Trade trade) throws IOException {
+
+        String ticker = trade.getTicker();
+        stockInfoService.getResponseBody(ticker);
+        if (assetRepository.findAllByTicker(trade.getTicker()).size()>0){
+            Asset existedAsset = assetRepository.findByTicker(ticker).get(0);
+            int newQty = existedAsset.getQty() + trade.getQuantity();
+            existedAsset.setQty(newQty);
+            existedAsset.setValuation(getValuation(stockInfoService.getPrice(), newQty));
+            assetRepository.save(existedAsset);
+        }
+        else {
+            Asset thisAsset = new Asset();
+            thisAsset.setTicker(ticker);
+            thisAsset.setName(stockInfoService.getName());
+            thisAsset.setPnl(getProfitLoss(stockInfoService.getPrice(), trade.getPrice()));
+            thisAsset.setTradedPrice(trade.getPrice());
+            thisAsset.setQty(trade.getQuantity());
+            thisAsset.setValuation(getValuation(stockInfoService.getPrice(), trade.getQuantity()));
+            assetRepository.save(thisAsset);
+        }
     }
 
     @Override
-    public void handleAsset(Trade trade) throws IOException {
+    @Transactional
+    public void handleSellAsset(Trade trade) throws IOException {
+        int tradeQty = trade.getQuantity();
+        Asset thisAsset = assetRepository.findByTicker(trade.getTicker()).get(0);
+        if (thisAsset.getQty() == tradeQty){
+            assetRepository.delete(thisAsset);
+        }
+        else {
+            thisAsset.setQty(thisAsset.getQty() - tradeQty);
+            thisAsset.setValuation(getValuation(thisAsset.getTradedPrice(), thisAsset.getQty()));
+            assetRepository.save(thisAsset);
+        }
 
-        // Check if asset alr exists
-        Asset thisAsset = new Asset();
-        String ticker = trade.getTicker();
-        stockInfoService.getResponseBody(ticker);
-        thisAsset.setTicker(ticker);
-        thisAsset.setName(stockInfoService.getName());
-        thisAsset.setPnl(getProfitLoss(stockInfoService.getPrice(),trade.getPrice()));
-        thisAsset.setTradedPrice(trade.getPrice());
-        thisAsset.setQty(trade.getQuantity());
-        thisAsset.setValuation(getValuation(stockInfoService.getPrice(),trade.getQuantity()));
-        assetRepository.save(thisAsset);
     }
 
     public String getProfitLoss(double realTimePrice, double tradedPrice){
@@ -113,4 +149,12 @@ public class TradeServiceImpl implements TradeService{
     public double getValuation(double price, int qty){
         return price*qty;
     }
+
+    @Scheduled(fixedRateString = "${scheduleRateMs:10000}")
+    @Override
+    public void processTrades() throws IOException {
+        findTradesForFilling();
+        findTradesForProcessing();
+    }
+
 }

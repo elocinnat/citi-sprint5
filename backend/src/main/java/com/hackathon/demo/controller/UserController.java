@@ -9,6 +9,7 @@ import com.hackathon.demo.service.TradeServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
+import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -21,7 +22,7 @@ public class UserController {
     private AssetRepository assetRepository;
 
     @Autowired
-    private User user;
+    private User user = new User();
 
     @Autowired
     private TradeServiceImpl tradeService;
@@ -40,7 +41,7 @@ public class UserController {
 
     @GetMapping("/user")
     @ResponseBody
-    public String getUserCurrency(){
-        return user.toString();
+    public double getUserCurrency(){
+        return user.currency;
     }
 }
