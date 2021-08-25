@@ -16,6 +16,8 @@ import {MatButtonModule} from "@angular/material/button";
 import {MatButtonToggleModule} from "@angular/material/button-toggle";
 import {MatList, MatListModule} from "@angular/material/list";
 import {MatTableModule} from "@angular/material/table";
+import {MatDividerModule} from "@angular/material/divider";
+import {MatIconModule} from "@angular/material/icon";
 
 import {Routes, RouterModule, Router} from "@angular/router";
 import { ProfileComponent } from './profile/profile.component';
@@ -32,6 +34,7 @@ import * as PlotlyJS from "plotly.js-dist-min";
 import { PlotlyModule } from 'angular-plotly.js';
 import { CandlestickChartComponent } from './candlestick-chart/candlestick-chart.component';
 import { TableComponent } from './table/table.component';
+import { GainerLoserRowComponent } from './landing-page/top-gainers-losers/gainer-loser-row/gainer-loser-row.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -57,6 +60,8 @@ const routes: Routes = [
     StatusOverviewComponent,
     CandlestickChartComponent,
     TableComponent,
+    GainerLoserRowComponent,
+
   ],
   
   imports: [
@@ -72,6 +77,8 @@ const routes: Routes = [
     MatButtonToggleModule,
     MatListModule,
     MatTableModule,
+    MatDividerModule,
+    MatIconModule,
 
     RouterModule.forRoot(routes),
     HttpClientModule,
