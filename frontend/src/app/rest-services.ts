@@ -11,7 +11,20 @@ export class RestService {
 
     constructor(private http: HttpClient) {}
 
-    
+    getSnp500(): any {
+        return this.http.get(this.pythonBackend + "/snp500")
+    }
 
+    getUser(): any {
+        return this.http.get(this.backendUrl + "/user") as Observable<string>
+    }
+
+    getUserAsset(): any {
+        return this.http.get(this.backendUrl + "/user/asset")
+    }
+
+    getSearchStock(symbol: string): any {
+        return this.http.get(this.backendUrl + "/search/" + symbol)
+    }
 
 }
