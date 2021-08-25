@@ -1,4 +1,4 @@
-<h3>Trading history</h3>
+<h5>Trading history</h5>
 <table class="table table-striped">
     <thead>
         <tr>
@@ -11,7 +11,7 @@
     </thead>
     <tbody>
         <tr *ngFor="let trade of tradeHist">
-            <td>{{ trade.date }}</td>
+            <td>{{ trade.date  | date: 'longDate'}}</td>
             <td>{{ trade.symbol }}</td>
             <td>{{ trade.name }}</td>
             <td>{{ trade.type }}</td>
