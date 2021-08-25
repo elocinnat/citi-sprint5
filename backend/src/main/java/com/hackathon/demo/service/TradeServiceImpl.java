@@ -14,6 +14,8 @@ import java.io.IOException;
 import java.text.NumberFormat;
 import java.util.List;
 
+import static java.lang.Double.compare;
+
 @Slf4j
 @Service
 @Configuration
@@ -41,23 +43,24 @@ public class TradeServiceImpl implements TradeService{
     }
 
     @Override
-    @Transactional
     public boolean checkUserAsset(Trade trade) throws IOException {
         double amount = trade.getPrice()*trade.getQuantity();
         if (trade.getType().equals(TradeType.BUY)){
-            if (user.currency>=amount){
+            if (Double.compare(user.currency, amount)>= 0){
                 handleBuyAsset(trade);
-                user.currency = user.currency-amount;
+                user.currency = user.currency - amount;
                 return true;
             }
             return false;
         }
         else{
-            if ((assetRepository.findAllByTicker(trade.getTicker()).size()>0)
-                    &&checkAssetQty(trade)){
-                handleSellAsset(trade);
-                user.currency = user.currency+amount;
-                return true;
+            if (assetRepository.existsByTicker(trade.getTicker())){
+                if (checkAssetQty(trade)) {
+                    handleSellAsset(trade);
+                    user.currency = user.currency + amount;
+                    return true;
+                }
+                else return false;
             }
             else {return false;}
         }
@@ -66,7 +69,7 @@ public class TradeServiceImpl implements TradeService{
     public boolean checkAssetQty(Trade trade){
         Asset thisAsset = new Asset();
         thisAsset = assetRepository.findByTicker(trade.getTicker()).get(0);
-        if (thisAsset.getQty()>=trade.getQuantity()){
+        if (Integer.compare(thisAsset.getQty(),trade.getQuantity())>=0){
             return true;
         }
         else {return false;}
@@ -98,17 +101,16 @@ public class TradeServiceImpl implements TradeService{
 
 
     @Override
-    @Transactional
     public void handleBuyAsset(Trade trade) throws IOException {
 
         String ticker = trade.getTicker();
         stockInfoService.getResponseBody(ticker);
-        if (assetRepository.findAllByTicker(trade.getTicker()).size()>0){
+        if (assetRepository.existsByTicker(ticker)){
             Asset existedAsset = assetRepository.findByTicker(ticker).get(0);
             int newQty = existedAsset.getQty() + trade.getQuantity();
             existedAsset.setQty(newQty);
             existedAsset.setValuation(getValuation(stockInfoService.getPrice(), newQty));
-            assetRepository.save(existedAsset);
+            saveAsset(existedAsset);
         }
         else {
             Asset thisAsset = new Asset();
@@ -118,8 +120,13 @@ public class TradeServiceImpl implements TradeService{
             thisAsset.setTradedPrice(trade.getPrice());
             thisAsset.setQty(trade.getQuantity());
             thisAsset.setValuation(getValuation(stockInfoService.getPrice(), trade.getQuantity()));
-            assetRepository.save(thisAsset);
+            saveAsset(thisAsset);
         }
+    }
+
+    @Transactional
+    public void saveAsset(Asset asset){
+        assetRepository.save(asset);
     }
 
     @Override
@@ -127,13 +134,14 @@ public class TradeServiceImpl implements TradeService{
     public void handleSellAsset(Trade trade) throws IOException {
         int tradeQty = trade.getQuantity();
         Asset thisAsset = assetRepository.findByTicker(trade.getTicker()).get(0);
-        if (thisAsset.getQty() == tradeQty){
+        int assetQty = thisAsset.getQty();
+        if (Integer.compare(assetQty,tradeQty)==0){
             assetRepository.delete(thisAsset);
         }
         else {
             thisAsset.setQty(thisAsset.getQty() - tradeQty);
             thisAsset.setValuation(getValuation(thisAsset.getTradedPrice(), thisAsset.getQty()));
-            assetRepository.save(thisAsset);
+            saveAsset(thisAsset);
         }
 
     }
