@@ -15,7 +15,11 @@
             <td>{{ trade.type }}</td>
             <td>{{ trade.quantity }}</td>
             <td>$ {{ trade.price | number}}</td>
-            <td>{{ trade.state }}</td>
+            <td>
+                <span class="rejected-state" *ngIf="trade.state === 'REJECTED'">{{ trade.state }}</span>
+                <span class="filled-state" *ngIf="trade.state === 'FILLED'">{{ trade.state }}</span>
+                <!-- <span class="processing-state" *ngIf="trade.state !== 'FILLED' || trade.state !== 'REJECTED'">{{ trade.state }}</span> -->
+            </td>
         </tr>
     </tbody>
 </table>
