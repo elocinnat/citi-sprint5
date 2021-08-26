@@ -119,7 +119,7 @@ public class TradeServiceImpl implements TradeService{
 
 
     @Override
-    public void handleBuyAsset(Trade trade) throws IOException {
+    public void handleBuyAsset(Trade trade) {
 
         String ticker = trade.getTicker();
         stockInfoService.getResponseBody(ticker);
@@ -127,6 +127,7 @@ public class TradeServiceImpl implements TradeService{
             log.info("Asset already exists.");
             Asset existedAsset = assetRepository.findByTicker(ticker).get(0);
             int newQty = Integer.sum(existedAsset.getQty(), trade.getQuantity());
+            //existedAsset.setTradedPrice(getAvgPrice());
             existedAsset.setQty(newQty);
             existedAsset.setValuation(getValuation(stockInfoService.getPrice(), newQty));
             saveAsset(existedAsset);
