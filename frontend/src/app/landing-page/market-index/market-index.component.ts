@@ -17,12 +17,6 @@ export class MarketIndexComponent implements OnInit {
     close: [],
     high: [],
     low: [],
-    increasing: {line: {color: 'green'}}, 
-    decreasing: {line: {color: 'red'}}, 
-    line: {color: 'black'}, 
-    type: 'candlestick', 
-    xaxis: 'x', 
-    yaxis: 'y'
   }
 
   currentPrice: any;

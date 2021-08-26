@@ -12,20 +12,6 @@ export class CandlestickChartComponent implements OnInit {
 
   constructor() { }
 
-  // public data:any = {
-  //   x: [], //datetime goes here
-  //   close: [],
-  //   high: [],
-  //   low: [],
-  //   open: [],
-  //   increasing: {line: {color: 'green'}}, 
-  //   decreasing: {line: {color: 'red'}}, 
-  //   line: {color: 'black'}, 
-  //   type: 'candlestick', 
-  //   xaxis: 'x', 
-  //   yaxis: 'y'
-  // }
-
   public candleLayout = {
     dragmode: 'zoom', 
     margin: {
@@ -52,6 +38,12 @@ export class CandlestickChartComponent implements OnInit {
 };
 
   ngOnInit(): void {
+    this.data["increasing"] = {line: {color: 'green'}}
+    this.data["decreasing"] = {line: {color: 'red'}}
+    this.data["line"] = {color: "black"}
+    this.data["type"] = "candlestick",
+    this.data["xaxis"] = "x"
+    this.data["yaxis"] = "y"
   }
 
 }

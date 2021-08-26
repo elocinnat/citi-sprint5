@@ -33,6 +33,10 @@ export class RestService {
         return this.http.get(this.backendUrl + "/search/" + symbol)
     }
 
+    getStockHistoricalPrice(symbol: string): any {
+        return this.http.get(this.backendUrl + "/historical-prices/" + symbol)
+    }
+
     postTrade(data: any): any {
         let url:string = this.backendUrl + "/trade"
         return this.http.post<any>(url, data)
