@@ -58,27 +58,43 @@ export class TradePanelComponent implements OnInit {
     })
 
     this.restService.postTrade(data)
-                    .subscribe((response: any) => {
-                      this.closeDialog()
-                      console.log(response)
+                    .subscribe(
+                      (response: any) => {
+                        this.closeDialog()
+                        console.log(response)
 
-                      if (response==200) {
-                        this.openDialog({
-                          dialogType: "success",
-                          tradeData: data
-                        })
-                      } else {
+                        if (response == 200) {
+                          this.openDialog({
+                            dialogType: "success",
+                            tradeData: data
+                          })
+                        } else {
+                          this.openDialog({
+                            dialogType: "failure",
+                            tradeDate: data
+                          })
+                        }
+
+                        this.buysell = "BUY"
+                        this.limitmarket = "limit"
+                        this.quantity = ""
+                      },
+
+                      (error: any) => {
+                        this.closeDialog()
+                        console.log(error)
+
                         this.openDialog({
                           dialogType: "failure",
                           tradeDate: data
                         })
+
+                        this.buysell = "BUY"
+                        this.limitmarket = "limit"
+                        this.quantity = ""
+
                       }
-
-                      this.buysell = "BUY"
-                      this.limitmarket = "limit"
-                      this.quantity = ""
-
-                    })
+                    )
   }
 
   ngOnInit(): void {

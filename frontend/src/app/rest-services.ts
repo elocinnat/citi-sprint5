@@ -42,4 +42,8 @@ export class RestService {
         return this.http.post<any>(url, data)
     }
 
+    getStockList(): any {
+        return this.http.get(this.pythonBackend + "/stock/search")
+    }
+
 }
