@@ -1,1 +1,26 @@
-<p>dialogs works!</p>
+<div mat-dialog-content>
+
+    <!-- invalid -->
+    <div *ngIf="data.dialogType=='invalid'">
+        Invalid trade. Please try again
+    </div>
+    
+    <!-- processing -->
+    <div *ngIf="data.dialogType=='processing'">
+        Processing your trade
+    </div>
+
+    <!-- success -->
+    <div *ngIf="data.dialogType=='success'">
+        Your order has been submitted! <br><br>
+
+        <app-table [data]="[data.tradeData]"></app-table>
+
+    </div>
+
+    <!-- failure -->
+    <div *ngIf="data.dialogType=='failure'">
+        Failed to make the trade. Please try again
+    </div>
+
+</div>
