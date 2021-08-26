@@ -65,7 +65,7 @@ export class StockComponent implements OnInit {
 
   ngOnInit(): void {
     this.symbol = this.route.snapshot.paramMap.get("symbol");
-    // this.fetchStockInfo();
+    this.fetchStockInfo();
     this.fetchStockHistoricalPrice()
   }
 
