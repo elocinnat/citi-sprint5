@@ -15,7 +15,7 @@
             <td>{{ trade.created  | date: 'longDate'}}</td>
             <td>{{ trade.name }}</td>
             <td>{{ trade.ticker }}</td>
-            <td>$ {{ trade.price | number}}</td>
+            <td>{{ trade.price | currency}}</td>
             <td>{{ trade.type }}</td>
         </tr>
     </tbody>

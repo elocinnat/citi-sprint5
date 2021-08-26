@@ -5,7 +5,7 @@
       <th scope="col">Symbol</th>
       <th scope="col">Name</th>
       <th scope="col">Quantity of Stocks</th>
-      <th scope="col">Stock Price</th>
+      <th scope="col">Traded Price</th>
       <th scope="col">Total Valuation</th>
       <th scope="col">Profit/Loss (%)</th>
     </tr>
@@ -15,8 +15,8 @@
       <td>{{ stock.ticker }}</td>
       <td>{{ stock.name }}</td>
       <td>{{ stock.qty }}</td>
-      <td>$ {{ stock.tradedPrice | number }}</td>
-      <td>$ {{ stock.valuation | number }}</td>
+      <td>{{ stock.tradedPrice | currency }}</td>
+      <td>{{ stock.valuation | currency }}</td>
       <td>{{ stock.pnl }}</td>
     </tr>
     </tbody>
