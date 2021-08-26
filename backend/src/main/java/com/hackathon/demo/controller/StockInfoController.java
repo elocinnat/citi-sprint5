@@ -1,5 +1,6 @@
 package com.hackathon.demo.controller;
 
+import com.hackathon.demo.entity.HistoricalItem;
 import com.hackathon.demo.entity.Stock;
 import com.hackathon.demo.service.StockInfoServiceImpl;
 import lombok.extern.slf4j.Slf4j;
@@ -9,6 +10,7 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.IOException;
+import java.util.List;
 
 @Slf4j
 @Controller
@@ -27,11 +29,17 @@ public class StockInfoController {
     @GetMapping ("/search/{stock}")
     @ResponseBody
     public Stock handleStockPrice(@PathVariable String stock) throws IOException {
-        log.info("Stock Description for "+stock);
         stockInformation.getResponseBody(stock);
         Stock tmpStock = new Stock(stock, stockInformation.getName(), stockInformation.getPrice(), stockInformation.getDescription());
         return tmpStock;
     }
+
+    @GetMapping ("/historical-prices/{stock}")
+    @ResponseBody
+    public List<HistoricalItem> handleHistoricalPrices(@PathVariable String stock) throws IOException {
+        return stockInformation.getHistoricalData(stock);
+    }
+
 
 
 }

@@ -33,12 +33,14 @@ public class TradeServiceImpl implements TradeService{
     private User user = new User();
 
     @Override
-    public void createTrade(double price, String type, int qty, String ticker){
+    public void createTrade(double price, String type, int qty, String ticker) throws IOException {
+        stockInfoService.getResponseBody(ticker);
         Trade tmpTrade = new Trade();
         tmpTrade.setPrice(price);
         tmpTrade.setQuantity(qty);
         tmpTrade.setTicker(ticker.toUpperCase());
         tmpTrade.setType(type.toLowerCase().equals("buy")? TradeType.BUY:TradeType.SELL);
+        tmpTrade.setName(stockInfoService.getName());
         tradeRepository.save(tmpTrade);
     }
 
@@ -47,6 +49,7 @@ public class TradeServiceImpl implements TradeService{
         double amount = trade.getPrice()*trade.getQuantity();
         if (trade.getType().equals(TradeType.BUY)){
             if (Double.compare(user.currency, amount)>= 0){
+                System.out.println("User has enough asset to buy the stock.");
                 handleBuyAsset(trade);
                 user.currency = user.currency - amount;
                 return true;
@@ -106,6 +109,7 @@ public class TradeServiceImpl implements TradeService{
         String ticker = trade.getTicker();
         stockInfoService.getResponseBody(ticker);
         if (assetRepository.existsByTicker(ticker)){
+            System.out.println("Asset already exists.");
             Asset existedAsset = assetRepository.findByTicker(ticker).get(0);
             int newQty = existedAsset.getQty() + trade.getQuantity();
             existedAsset.setQty(newQty);
@@ -113,6 +117,7 @@ public class TradeServiceImpl implements TradeService{
             saveAsset(existedAsset);
         }
         else {
+            System.out.println("Asset does not exist.");
             Asset thisAsset = new Asset();
             thisAsset.setTicker(ticker);
             thisAsset.setName(stockInfoService.getName());

@@ -28,6 +28,7 @@ public class Trade {
     @Enumerated(EnumType.STRING)
     private TradeType type = TradeType.BUY;
     private String ticker;
+    private String name;
     private int quantity;
     private double price;
 
