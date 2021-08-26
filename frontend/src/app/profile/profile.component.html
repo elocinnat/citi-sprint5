@@ -4,6 +4,8 @@
         <app-user-info [currency] = "currency"></app-user-info>
     </div>
     <div class="user-holdings shadow container">
+        <h5>Overview of holdings</h5>
+        <app-pie-chart [data]= "[pieData]"></app-pie-chart>
         <app-user-holdings [userAssets] = "userAsset"></app-user-holdings>
     </div>
 
