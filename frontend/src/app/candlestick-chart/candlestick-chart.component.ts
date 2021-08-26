@@ -10,6 +10,10 @@ export class CandlestickChartComponent implements OnInit {
 
   @Input() data!: any;
 
+  /** Input data format
+   * { x:[], open: [], close: [], high: [], close: [] }
+  */
+
   constructor() { }
 
   public candleLayout = {
