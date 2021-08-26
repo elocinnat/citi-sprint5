@@ -1,0 +1,11 @@
+.filled-state{
+    color: green;
+}
+
+.rejected-state{
+    color: red;
+}
+
+.table-condensed{
+    font-size: 16px;
+  }

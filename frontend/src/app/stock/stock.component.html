@@ -1,0 +1,37 @@
+<div class="container-large grid-container">
+
+            <div class="container shadow left">
+
+                <h2 class="stock-name">
+                    {{name}} ({{symbol}})
+                </h2>
+
+                <div class="current-price">
+                    ${{currentPrice}}
+                </div>
+
+                <br>
+
+                <app-candlestick-chart [data]="historicalPrice"></app-candlestick-chart>
+
+                <br>
+
+                <p class="stock-description">
+                    {{description}}
+                </p>
+
+            </div>
+
+        <!-- right panel -->
+
+            <div class="container shadow right">
+                
+                <app-trade-panel 
+                    [symbol]="symbol" 
+                    [currentPrice]="currentPrice">
+                </app-trade-panel>
+
+            </div>
+
+
+</div>

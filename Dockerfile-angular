@@ -1,4 +1,4 @@
-FROM nginx:mainline-alpine
+FROM nginx
 
 COPY frontend/dist/frontend/ /usr/share/nginx/html/
 

@@ -6,4 +6,58 @@ html {
     font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 html, body { height: 100%; }
+
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+.container-large {
+    margin: 1% 5% 1% 5%;
+    padding: 1% 5% 1% 5%;
+}
+
+.container {
+    margin: 0px;
+    padding: 5%
+}
+
+.container-small {
+    margin: 0px;
+    padding: 2% 2% 2% 2%;
+}
+
+.row {
+    display: block;
+    position: relative;
+}
+
+.row .col8 {
+    margin: 8px;
+    display: inline-block;
+    width: 64%;
+}
+
+.row .col4 {
+    margin: 8px;
+    display: inline-block;
+    width: 32%;
+}
+
+.col-side {
+    position: absolute;
+    top: 0px;
+}
+
+.shadow {
+    box-shadow: 0 2px 4px grey
+}
+
+.button {
+    background-color: black;
+    color: white;
+    font-size: 24px;
+    font-weight: lighter;
+    width: 100%;
+    height: 2em;
+}
+table{
+    table-layout: fixed;
+}

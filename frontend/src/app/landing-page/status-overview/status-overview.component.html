@@ -1,0 +1,29 @@
+<div class="shadow container">
+
+    <div class="current-holdings">
+
+      <h3 class="title">My holdings</h3>
+
+      <app-table [data]="holdings"></app-table>
+
+    </div>
+
+    <br>
+
+    <div class="recent-trades">
+
+      <h3 class="title">Recent Trades</h3>
+
+      <app-table [data]="recentTrades"></app-table>
+
+    </div>
+
+    <br><br>
+
+    <button mat-stroked-button
+        class="button"
+        routerLink="/profile">
+        View My Profile
+    </button>
+
+</div>

@@ -1,0 +1,37 @@
+<div class="container">
+
+    <div class="grid-container">
+        <div class="left">
+            <h1>Market Today</h1>
+        </div>
+
+        <div class="right price ">
+            <div>
+                ${{currentPrice}} 
+                
+                <span *ngIf="metaData">
+                    ({{metaData.currency}})
+                </span>
+            </div>
+        </div>
+
+        <div class="left">
+            <div *ngIf="metaData">
+                {{metaData.name}} ({{metaData.symbol}})
+            </div>
+        </div>
+
+        <div class="right price-change ">
+            {{priceChange}} ( +{{pricePercentageChange}} % )
+        </div>
+
+    </div>
+
+    <br><br>
+    
+    <app-candlestick-chart [data]="priceData"></app-candlestick-chart>
+
+</div>
+
+
+

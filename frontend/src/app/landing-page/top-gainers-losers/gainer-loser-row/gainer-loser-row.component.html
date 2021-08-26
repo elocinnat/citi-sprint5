@@ -1,0 +1,36 @@
+<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<div class="grid-container">
+
+    <div class="left">
+        
+        <span class="higher">
+            {{data.name}} 
+        </span>
+        
+        <br>
+
+        <span class="lower">
+            {{data.symbol}}
+        </span>
+    </div>
+
+    <div class="right">
+        
+        <span class="higher">
+            $ {{data.price}}
+        </span>
+
+        <br>
+
+        <span [style]="'color:' + color" class="lower">
+            <mat-icon>{{icon}}</mat-icon>
+
+            &nbsp;
+
+            {{data.change}} %
+        </span>
+
+    </div>
+
+</div>

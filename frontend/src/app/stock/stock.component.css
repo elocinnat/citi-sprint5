@@ -1,0 +1,21 @@
+.stock-name {
+
+}
+
+.current-price {
+    font-size: 36px;
+}
+
+.stock-description {
+    font-size: 80%;
+}
+
+.left {grid-column:1;}
+.right {grid-column: 2;}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 67% 33%;
+    grid-gap: 16px;
+}
+

@@ -1,0 +1,53 @@
+<div class="grid-container">
+
+    <!-- search bar -->
+    <form>
+        <mat-form-field
+            class="searchbar">
+
+            <input
+                [(ngModel)]="selectedStock"
+                type="text"
+                matInput
+                placeholder="Search Stocks"
+                [matAutocomplete]="auto"
+                [formControl]="control">
+
+            <mat-autocomplete 
+                #auto="matAutocomplete" 
+                [displayWith]="displayFunction">
+                
+                <mat-option 
+                    *ngFor="let option of filteredOptions | async"
+                    [value]="option">
+
+                    <span *ngIf="option">{{option.name}}</span>
+
+                </mat-option>
+
+            </mat-autocomplete>
+
+        </mat-form-field>
+    </form>
+
+    <!-- search button -->
+    <div class="searchbutton">
+        <button 
+            *ngIf="selectedStock; else dummyButton"
+            class="button"
+            mat-stroked-button
+            [routerLink]="'/stock/' + selectedStock.symbol">
+            Search
+        </button>
+
+        <ng-template #dummyButton>
+            <button 
+                class="button"
+                mat-stroked-button>
+                Search
+            </button>
+        </ng-template>
+
+    </div>
+
+</div>

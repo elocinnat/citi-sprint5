@@ -1,0 +1,25 @@
+.user-info{
+    display: flex;
+    justify-content: space-between;
+}
+.currency-font{
+    color: #118C4F;
+}
+.avatar-icon{
+    width: 120px;
+}
+.user-profile-header{
+    display: flex;
+}
+.user-profile-text{
+    margin: 25px;
+}
+.verified-user-text{
+    height: 21px;
+    display: flex;
+    font-size: large;
+    color: lightslategrey;
+}
+.verified-icon{
+    margin-left: 5px;
+}

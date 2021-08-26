@@ -1,0 +1,26 @@
+.search {
+    grid-column: 1;
+    grid-row: 1;
+}
+
+.overview {
+    grid-column: 2;
+    grid-row:1 / span 3;
+}
+
+.market-index {
+    grid-column: 1;
+    grid-row: 2;
+}
+
+.top-gainers-losers {
+    grid-column: 1;
+    grid-row: 3;
+}
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 67% 33%;
+    grid-template-rows: auto auto auto;
+    grid-gap: 16px;
+}
