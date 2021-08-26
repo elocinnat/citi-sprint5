@@ -1,6 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { RestService } from 'src/app/rest-services';
-import { MatDialog, MatDialogRef } from '@angular/material/dialog';
+import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { DialogsComponent } from './dialogs/dialogs.component';
 
 @Component({
   selector: 'app-trade-panel',
@@ -22,14 +23,18 @@ export class TradePanelComponent implements OnInit {
     this.quantity = ""
   }
 
-  openDialog(): void {
-    
+  openDialog(data: any): void {
+    const dialogRef = this.dialog.open(DialogsComponent, {
+      width: "50%",
+      data: data
+    })
   }
 
+  closeDialog(): void {
+    this.dialog.closeAll();
+  }
 
   makeTrade() {
-
-    this.openDialog()
 
     let data = {
       "type": this.buysell, 
@@ -37,17 +42,47 @@ export class TradePanelComponent implements OnInit {
       ticker: this.symbol,
     }
 
+    console.log("making trade", data)
+
+    if (!(data.qty > 0)) {
+      this.openDialog({
+        dialogType: "invalid"
+      })
+
+      return
+    }
+
+    this.openDialog({
+      dialogType: "processing",
+      tradeData: data
+    })
+
     this.restService.postTrade(data)
                     .subscribe((response: any) => {
+                      this.closeDialog()
+                      console.log(response)
+
                       if (response==200) {
-
+                        this.openDialog({
+                          dialogType: "success",
+                          tradeData: data
+                        })
                       } else {
-
+                        this.openDialog({
+                          dialogType: "failure",
+                          tradeDate: data
+                        })
                       }
+
+                      this.buysell = "BUY"
+                      this.limitmarket = "limit"
+                      this.quantity = ""
+
                     })
   }
 
   ngOnInit(): void {
+
   }
 
 }
