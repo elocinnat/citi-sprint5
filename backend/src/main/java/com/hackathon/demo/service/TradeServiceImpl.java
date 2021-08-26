@@ -127,8 +127,9 @@ public class TradeServiceImpl implements TradeService{
             log.info("Asset already exists.");
             Asset existedAsset = assetRepository.findByTicker(ticker).get(0);
             int newQty = Integer.sum(existedAsset.getQty(), trade.getQuantity());
-            //existedAsset.setTradedPrice(getAvgPrice());
+            existedAsset.setTradedPrice(getAvgPrice(existedAsset, trade, stockInfoService.getPrice(), newQty));
             existedAsset.setQty(newQty);
+            existedAsset.setRealTimePrice(stockInfoService.getPrice());
             existedAsset.setValuation(getValuation(stockInfoService.getPrice(), newQty));
             saveAsset(existedAsset);
         }
@@ -144,6 +145,12 @@ public class TradeServiceImpl implements TradeService{
             thisAsset.setValuation(getValuation(stockInfoService.getPrice(), trade.getQuantity()));
             saveAsset(thisAsset);
         }
+    }
+
+    public double getAvgPrice(Asset asset, Trade trade, double realTimePrice, int newQty){
+        double curTotal = asset.getQty()*asset.getTradedPrice();
+        double newTotal = curTotal + trade.getQuantity()*realTimePrice;
+        return newTotal/newQty;
     }
 
     @Transactional
@@ -162,7 +169,8 @@ public class TradeServiceImpl implements TradeService{
         }
         else {
             thisAsset.setQty(thisAsset.getQty() - tradeQty);
-            thisAsset.setValuation(getValuation(thisAsset.getTradedPrice(), thisAsset.getQty()));
+            thisAsset.setRealTimePrice(stockInfoService.getPrice());
+            thisAsset.setValuation(getValuation(stockInfoService.getPrice(), thisAsset.getQty()));
             saveAsset(thisAsset);
         }
 
