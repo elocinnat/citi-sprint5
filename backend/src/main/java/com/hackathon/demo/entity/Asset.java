@@ -25,16 +25,4 @@ public class Asset {
     private double realTimePrice;
     private double valuation;
     private String pnl;
-
-    @Override
-    public String toString() {
-        return "Asset{" +
-                "ticker='" + ticker + '\'' +
-                ", name='" + name + '\'' +
-                ", qty=" + qty +
-                ", tradedPrice=" + tradedPrice +
-                ", valuation=" + valuation +
-                ", pnl='" + pnl + '\'' +
-                '}';
-    }
 }
