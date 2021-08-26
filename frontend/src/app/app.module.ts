@@ -42,6 +42,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TableComponent } from './table/table.component';
 import { GainerLoserRowComponent } from './landing-page/top-gainers-losers/gainer-loser-row/gainer-loser-row.component';
 import { TradePanelComponent } from './stock/trade-panel/trade-panel.component';
+import { PieChartComponent } from './pie-chart/pie-chart.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -73,6 +74,7 @@ const routes: Routes = [
     TableComponent,
     GainerLoserRowComponent,
     TradePanelComponent,
+    PieChartComponent,
 
   ],
   

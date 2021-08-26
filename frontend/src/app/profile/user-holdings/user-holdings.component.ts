@@ -43,10 +43,19 @@ export class UserHoldingsComponent implements OnInit {
 
   @Input()
   userAssets: any;
-
+  
+  pieData: any = {
+    values: [10, 21, 55],
+    labels: ['Residential', 'Non-Residential', 'Utility'],
+    textinfo: "label+percent",
+    textposition: "outside",
+    automargin: true,
+    type: 'pie'
+  }
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
