@@ -34,7 +34,6 @@ export class TradePanelComponent implements OnInit {
     this.dialog.closeAll();
   }
 
-
   makeTrade() {
 
     let data = {
@@ -49,7 +48,7 @@ export class TradePanelComponent implements OnInit {
       this.openDialog({
         dialogType: "invalid"
       })
-      
+
       return
     }
 
@@ -74,6 +73,11 @@ export class TradePanelComponent implements OnInit {
                           tradeDate: data
                         })
                       }
+
+                      this.buysell = "BUY"
+                      this.limitmarket = "limit"
+                      this.quantity = ""
+
                     })
   }
 
