@@ -5,16 +5,21 @@ h3{
     font-family: Garamond, serif;
 }
 .top-nav-bar{
-    background-color: #005AA1;
-    color: whitesmoke;
+    background-color: whitesmoke;
+    padding: 8px 8px 0px;
+    /* color: whitesmoke; */
     box-shadow: 0 4px 8px -4px grey;
+    display: flex;
+    justify-content: space-between;
 }
 a{
-    color:whitesmoke;
-    
+    /* color:whitesmoke; */
+    /* background-color: #002D72;
+    color: whitesmoke; */
+    border-radius: 6px 6px 0 0; 
 }
 a:hover{
-    background-color: #002D72;
+    background-color: #174b74;
     border-radius: 6px 6px 0 0;       
     color: whitesmoke;
 }
@@ -28,11 +33,17 @@ a:hover{
     box-shadow: 0 12px 12px #002d72;
     /* border-bottom: 2px solid #005AA1; */
     font-weight: bold;
-    background-color: whitesmoke;
-    color: black;
+    /* background-color: #005AA1; */
+    background-color: lightslategray;
+    color: whitesmoke;
     border-radius: 6px 6px 0 0;
 }
 .active-link:hover{
-    background-color: whitesmoke;
-    color: black;
+    background-color: lightslategray;
+    color: whitesmoke;
+}
+
+.logo-img{
+    height: 30px;
+    margin-left: 20px;
 }

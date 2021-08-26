@@ -45,6 +45,7 @@ export class UserHoldingsComponent implements OnInit {
   userAssets: any;
   
   pieData: any = {
+    // need to figure out how to replace with data
     values: [10, 21, 55],
     labels: ['Residential', 'Non-Residential', 'Utility'],
     textinfo: "label+percent",

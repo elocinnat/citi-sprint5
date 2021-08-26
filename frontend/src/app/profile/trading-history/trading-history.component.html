@@ -1,8 +1,9 @@
 <h5>Trading history</h5>
-<table class="table table-striped mat-elevation-z8">
+<table class="table table-striped mat-elevation-z8 table-condensed">
     <thead>
         <tr>
             <th scope="col">Date</th>
+            <th scope="col">Name</th>
             <th scope="col">Symbol</th>
             <th scope="col">Price</th>
             <th scope="col">Type</th>
@@ -12,10 +13,10 @@
     <tbody>
         <tr *ngFor="let trade of userHist">
             <td>{{ trade.created  | date: 'longDate'}}</td>
+            <td>{{ trade.name }}</td>
             <td>{{ trade.ticker }}</td>
             <td>$ {{ trade.price | number}}</td>
             <td>{{ trade.type }}</td>
-            <!-- <td>$ {{ trade.profitOrLoss | number }}</td> -->
         </tr>
     </tbody>
 </table>

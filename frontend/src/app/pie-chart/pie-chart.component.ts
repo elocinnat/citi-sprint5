@@ -7,7 +7,7 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class PieChartComponent implements OnInit {
 
-  @Input() data!: any;
+  @Input() data: any;
 
   constructor() { }
 
@@ -21,7 +21,8 @@ export class PieChartComponent implements OnInit {
   // };
   public pieLayout = {
     autosize: true, 
-    title: 'Overview of Holdings'
+    title: 'Overview of Holdings',
+    showlegend: false
   }
 
   ngOnInit(): void {
