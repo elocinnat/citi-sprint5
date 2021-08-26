@@ -33,8 +33,9 @@ public class TradeServiceImpl implements TradeService{
 
     private User user = new User();
 
+
     @Override
-    public void createTrade(double price, String type, int qty, String ticker) throws IOException {
+    public void createTrade(double price, String type, int qty, String ticker) {
         stockInfoService.getResponseBody(ticker);
         Trade tmpTrade = new Trade();
         tmpTrade.setPrice(price);
