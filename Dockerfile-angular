@@ -1,0 +1,5 @@
+FROM nginx:latest
+
+COPY frontend/dist/DemoApp/ /usr/share/nginx/html/
+
+EXPOSE 80

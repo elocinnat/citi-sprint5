@@ -22,7 +22,8 @@ pipeline {
                 sh "oc delete all --selector app=${projectName} || echo 'Unable to delete all previous OpenShift resources'"
                 sh "oc new-app ${dockerAngularImageTag} -l version=${version}"
                 sh "oc new-app ${dockerSpringBootImageTag} -l version=${version}"
-                sh "oc expose svc/app"
+		sh "oc expose svc/backend-app"
+                sh "oc expose svc/frontend-app"
             }
         }
     }

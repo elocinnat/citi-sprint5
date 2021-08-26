@@ -85,6 +85,7 @@
                 </configuration>
             </plugin>
         </plugins>
+        <finalName>backend-app</finalName>
     </build>
 
 </project>
