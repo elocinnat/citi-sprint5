@@ -1,4 +1,4 @@
-FROM nginx:latest
+FROM nginx:mainline-alpine
 
 COPY frontend/dist/frontend/ /usr/share/nginx/html/
 
