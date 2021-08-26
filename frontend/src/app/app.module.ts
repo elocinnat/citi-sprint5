@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -40,6 +41,7 @@ import { UserInfoComponent } from './profile/user-info/user-info.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { TableComponent } from './table/table.component';
 import { GainerLoserRowComponent } from './landing-page/top-gainers-losers/gainer-loser-row/gainer-loser-row.component';
+import { TradePanelComponent } from './stock/trade-panel/trade-panel.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -70,6 +72,7 @@ const routes: Routes = [
     UserInfoComponent,
     TableComponent,
     GainerLoserRowComponent,
+    TradePanelComponent,
 
   ],
   
@@ -93,6 +96,7 @@ const routes: Routes = [
     HttpClientModule,
     PlotlyModule,
     NgbModule,
+    FormsModule,
   ],
 
   exports: [

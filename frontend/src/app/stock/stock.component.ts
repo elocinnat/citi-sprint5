@@ -16,14 +16,13 @@ export class StockComponent implements OnInit {
   currentPrice!: number;
   historicalPrice: any;
 
-  constructor(private route: ActivatedRoute, private restService: RestService) {}
+  constructor(private route: ActivatedRoute, private restService: RestService) {
+    this.name = "Loading stock name";
+    this.description = "loading stock description";
+    this.currentPrice = 0;
+  }
 
-  ngOnInit(): void {
-    this.symbol = this.route.snapshot.paramMap.get("symbol");
-    this.name = "Stock name"
-    this.description = "stock description";
-    this.currentPrice = 64000;
-
+  fetchStockInfo(): void {
     this.restService.getSearchStock(this.symbol)
                     .subscribe((response: any) => {
                       console.log(response)
@@ -31,7 +30,11 @@ export class StockComponent implements OnInit {
                       this.currentPrice = response.price;
                       this.description = response.description;
                     })
+  }
 
+  ngOnInit(): void {
+    this.symbol = this.route.snapshot.paramMap.get("symbol");
+    // this.fetchStockInfo();
   }
 
 }

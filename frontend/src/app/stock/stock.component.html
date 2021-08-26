@@ -10,9 +10,11 @@
                     ${{currentPrice}}
                 </div>
 
-                <br><br>
+                <br>
 
                 candlestick chart goes here
+
+                <br>
 
                 <p class="stock-description">
                     {{description}}
@@ -24,50 +26,10 @@
 
             <div class="container shadow right">
                 
-                <h2>Make a Trade</h2>
-
-                <mat-button-toggle-group name="buy-sell">
-
-                    <mat-button-toggle 
-                        class="buysell-toggle"
-                        checked="true">
-                        Buy
-                    </mat-button-toggle>
-
-                    <mat-button-toggle>
-                        Sell
-                    </mat-button-toggle>
-
-                </mat-button-toggle-group>
-
-                <br>
-
-                <p>Select Your Order Type:</p>
-
-                <mat-button-toggle-group name="limit-market">
-
-                    <mat-button-toggle checked="true">
-                        Limit
-                    </mat-button-toggle>
-
-                    <mat-button-toggle>
-                        Market
-                    </mat-button-toggle>
-
-                </mat-button-toggle-group>
-
-                <p>Enter Quantity:</p>
-
-                <mat-form-field>
-                    <input matInput placeholder="Quantity">
-                </mat-form-field>
-
-                <br><br>
-
-                <button mat-stroked-button class="button">
-                    Make Trade
-                </button>
-
+                <app-trade-panel 
+                    [symbol]="symbol" 
+                    [currentPrice]="currentPrice">
+                </app-trade-panel>
 
             </div>
 
