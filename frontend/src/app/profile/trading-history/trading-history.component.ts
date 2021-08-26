@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 interface TradeHist{
   date: Date;
@@ -8,29 +8,29 @@ interface TradeHist{
   profitOrLoss: number;
 }
 
-const TRADEHIST: TradeHist[] = [
-  {
-    date: new Date(),
-    symbol: 'TSLA',
-    name: 'Tesla, Inc.',
-    type: 'Sell',
-    profitOrLoss: 200
-  },
-  {
-    date: new Date(),
-    symbol: 'TSLA',
-    name: 'Tesla, Inc.',
-    type: 'Sell',
-    profitOrLoss: 200
-  },
-  {
-    date: new Date(),
-    symbol: 'TSLA',
-    name: 'Tesla, Inc.',
-    type: 'Sell',
-    profitOrLoss: 200
-  },
-]
+// const TRADEHIST: TradeHist[] = [
+//   {
+//     date: new Date(),
+//     symbol: 'TSLA',
+//     name: 'Tesla, Inc.',
+//     type: 'Sell',
+//     profitOrLoss: 200
+//   },
+//   {
+//     date: new Date(),
+//     symbol: 'TSLA',
+//     name: 'Tesla, Inc.',
+//     type: 'Sell',
+//     profitOrLoss: 200
+//   },
+//   {
+//     date: new Date(),
+//     symbol: 'TSLA',
+//     name: 'Tesla, Inc.',
+//     type: 'Sell',
+//     profitOrLoss: 200
+//   },
+// ]
 
 @Component({
   selector: 'app-trading-history',
@@ -39,7 +39,11 @@ const TRADEHIST: TradeHist[] = [
 })
 export class TradingHistoryComponent implements OnInit {
 
-  tradeHist = TRADEHIST;
+  // tradeHist = TRADEHIST;
+  
+  
+  @Input()
+  userHist: any;
 
   constructor() { }
 

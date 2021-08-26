@@ -1,15 +1,17 @@
 <div class="profile-page container-large">
+    <h5>Profile Overview</h5>
     <div class="user-info">
-        <app-user-info></app-user-info>
+        <app-user-info [currency] = "currency"></app-user-info>
     </div>
     <div class="user-holdings shadow container">
-        <app-user-holdings></app-user-holdings>
+        <app-user-holdings [userAssets] = "userAsset"></app-user-holdings>
     </div>
 
     <div class="trading-hist shadow container">
-        <app-trading-history></app-trading-history>
+        <app-trading-history [userHist] = "userHist"></app-trading-history>
     </div>
     <div class="trade-status shadow container">
-        <app-trade-status></app-trade-status>
+        <app-trade-status [userStatus] = "userHist"></app-trade-status>
     </div>
+
 </div>

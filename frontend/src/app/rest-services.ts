@@ -6,7 +6,9 @@ import {Observable} from "rxjs";
     providedIn: "root",
 })
 export class RestService {
+    
     private backendUrl = "http://localhost:8080";
+
     private pythonBackend = "http://localhost:8000";
 
     constructor(private http: HttpClient) {}
@@ -23,8 +25,16 @@ export class RestService {
         return this.http.get(this.backendUrl + "/user/asset")
     }
 
+    getUserHist(): any {
+        return this.http.get(this.backendUrl + '/user/history')
+    }
+
     getSearchStock(symbol: string): any {
         return this.http.get(this.backendUrl + "/search/" + symbol)
+    }
+
+    postTrade(data: any) {
+        return this.http.post(this.backendUrl + "/trade", data)
     }
 
 }

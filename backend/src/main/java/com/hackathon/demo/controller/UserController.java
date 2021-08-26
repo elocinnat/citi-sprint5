@@ -33,6 +33,7 @@ public class UserController {
         return tradeRepository.findAll();
     }
 
+    @CrossOrigin("*")
     @GetMapping("/user/asset")
     @ResponseBody
     public Iterable<Asset> getUserAssets(){

@@ -26,6 +26,7 @@ public class TradeController {
     @Autowired
     private TradeServiceImpl tradeService;
 
+    @CrossOrigin("*")
     @PostMapping("/trade")
     @ResponseStatus
     public ResponseEntity handleTrade(@RequestParam("type") String type,

@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-user-info',
@@ -8,11 +8,14 @@ import { Component, OnInit } from '@angular/core';
 export class UserInfoComponent implements OnInit {
 
   fullName: string = "Nicole Tan";
-  amt: number = 10000;
+  
+  @Input()
+  currency: any;
 
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.currency)
   }
 
 }
