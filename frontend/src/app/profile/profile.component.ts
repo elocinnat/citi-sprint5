@@ -13,7 +13,6 @@ export class ProfileComponent implements OnInit {
   userAsset: any;
 
   pieData: any = {
-    // need to figure out how to replace with data
     values: [],
     labels: [],
     textinfo: "label+percent",

@@ -1,5 +1,5 @@
-<div class="user-info shadow container">
-    <div class="user-profile-header">
+<div class="user-info grid-container">
+    <div class="user-profile-header container shadow left">
         <img class="avatar-icon" src="assets/svg/avatar-icon.svg" alt="Avatar icon">
         <div class="user-profile-text">
             <h6>{{fullName}}</h6>
@@ -7,15 +7,33 @@
                 <span>Verified User</span>
                 <img class="verified-icon" src="assets/svg/verified-tick.svg" alt="Verified Icon">
             </div>
-            
+
         </div>
     </div>
-    
-    <div class="wallet">
+
+    <div class="wallet container shadow right">
         <span>Current Balance </span>
         <h6 class="currency-font">$ {{currency | number}}</h6>
+
         
+        <!-- buy sell button toggle -->
+        <mat-button-toggle-group name="withdrawDeposit">
+            <mat-button-toggle checked="true" value="DEPOSIT">Deposit</mat-button-toggle>
+            <mat-button-toggle value="WITHDRAW">Withdraw</mat-button-toggle>
+        </mat-button-toggle-group>
+
+        <br><br>
+
+        <p>Enter Amount (USD):</p>
+
+        <mat-form-field>
+            <input matInput placeholder="Amount">
+        </mat-form-field>
+
+        <br><br>
+
+        <button mat-stroked-button class="button" >
+            Proceed
+        </button>
     </div>
 </div>
-
-
