@@ -1,6 +1,5 @@
 import numpy as np
 import pandas as pd
-from pydantic import BaseModel
 
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
@@ -50,13 +49,4 @@ def arkk():
         }
     }
 
-class Item(BaseModel):
-    name: str
-    price: float
-
-@app.post("/test")
-def post_test(item: Item):
-    return {
-        "message": "post test success",
-        "item": item
-    }
+from stocksearch import *

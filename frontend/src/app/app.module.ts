@@ -20,6 +20,9 @@ import {MatTableModule} from "@angular/material/table";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatIconModule} from "@angular/material/icon";
 import {MatDialogModule} from "@angular/material/dialog";
+import {MatAutocompleteModule} from "@angular/material/autocomplete";
+
+import { FormControl, ReactiveFormsModule } from "@angular/forms";
 
 import {Routes, RouterModule, Router} from "@angular/router";
 import { ProfileComponent } from './profile/profile.component';
@@ -97,12 +100,14 @@ const routes: Routes = [
     MatDividerModule,
     MatIconModule,
     MatDialogModule,
+    MatAutocompleteModule,
 
     RouterModule.forRoot(routes),
     HttpClientModule,
     PlotlyModule,
     NgbModule,
     FormsModule,
+    ReactiveFormsModule,
   ],
 
   exports: [
