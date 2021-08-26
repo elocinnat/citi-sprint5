@@ -19,6 +19,7 @@ import {MatList, MatListModule} from "@angular/material/list";
 import {MatTableModule} from "@angular/material/table";
 import {MatDividerModule} from "@angular/material/divider";
 import {MatIconModule} from "@angular/material/icon";
+import {MatDialogModule} from "@angular/material/dialog";
 
 import {Routes, RouterModule, Router} from "@angular/router";
 import { ProfileComponent } from './profile/profile.component';
@@ -43,6 +44,7 @@ import { TableComponent } from './table/table.component';
 import { GainerLoserRowComponent } from './landing-page/top-gainers-losers/gainer-loser-row/gainer-loser-row.component';
 import { TradePanelComponent } from './stock/trade-panel/trade-panel.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
+import { DialogsComponent } from './stock/trade-panel/dialogs/dialogs.component';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -75,6 +77,7 @@ const routes: Routes = [
     GainerLoserRowComponent,
     TradePanelComponent,
     PieChartComponent,
+    DialogsComponent,
 
   ],
   
@@ -93,6 +96,7 @@ const routes: Routes = [
     MatTableModule,
     MatDividerModule,
     MatIconModule,
+    MatDialogModule,
 
     RouterModule.forRoot(routes),
     HttpClientModule,

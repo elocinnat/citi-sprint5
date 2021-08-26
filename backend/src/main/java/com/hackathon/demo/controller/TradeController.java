@@ -1,5 +1,6 @@
 package com.hackathon.demo.controller;
 
+import com.hackathon.demo.entity.HandleTradeRequestBody;
 import com.hackathon.demo.entity.Trade;
 import com.hackathon.demo.entity.TradeType;
 import com.hackathon.demo.repository.TradeRepository;
@@ -27,11 +28,14 @@ public class TradeController {
     private TradeServiceImpl tradeService;
 
     @CrossOrigin("*")
-    @PostMapping("/trade")
+    @PostMapping(value="/trade", consumes="application/json", produces="application/json")
     @ResponseStatus
-    public ResponseEntity handleTrade(@RequestParam("type") String type,
-                                      @RequestParam("qty") Integer quantity,
-                                      @RequestParam("ticker") String ticker) throws IOException {
+    public ResponseEntity handleTrade(@RequestBody HandleTradeRequestBody requestBody) throws IOException {
+
+        String ticker = requestBody.getTicker();
+        String type = requestBody.getType();
+        int quantity = requestBody.getQty();
+
         try {
             stockInformation.getResponseBody(ticker);
             double price = stockInformation.getPrice();

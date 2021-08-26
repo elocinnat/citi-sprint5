@@ -33,8 +33,9 @@ export class RestService {
         return this.http.get(this.backendUrl + "/search/" + symbol)
     }
 
-    postTrade(data: any) {
-        return this.http.post(this.backendUrl + "/trade", data)
+    postTrade(data: any): any {
+        let url:string = this.backendUrl + "/trade"
+        return this.http.post<any>(url, data)
     }
 
 }
