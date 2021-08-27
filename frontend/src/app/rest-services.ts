@@ -14,7 +14,8 @@ export class RestService {
     constructor(private http: HttpClient) {}
 
     getSnp500(): any {
-        return this.http.get(this.pythonBackend + "/snp500")
+        // return this.http.get(this.pythonBackend + "/snp500")
+        return this.http.get("https://api.jsonbin.io/b/61285590c5159b35ae048beb")
     }
 
     getUser(): any {
@@ -43,7 +44,8 @@ export class RestService {
     }
 
     getStockList(): any {
-        return this.http.get(this.pythonBackend + "/stock/search")
+        // return this.http.get(this.pythonBackend + "/stock/search")
+        return this.http.get("https://api.jsonbin.io/b/61285612076a223676b1cb98")
     }
 
 }
