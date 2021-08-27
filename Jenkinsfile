@@ -1,6 +1,6 @@
 def projectName = 'sprint5webapp'
 def version = "0.0.${currentBuild.number}"
-def dockerAngularImageTag = "angular:${version}"
+def dockerAngularImageTag = "angular-app:${version}"
 def dockerSpringBootImageTag = "spring-boot:${version}"
 
 pipeline {
@@ -23,7 +23,7 @@ pipeline {
                 sh "oc new-app ${dockerAngularImageTag} -l version=${version}"
                 sh "oc new-app ${dockerSpringBootImageTag} -l version=${version}"
 		sh "oc expose svc/spring-boot"
-                sh "oc expose svc/angular --port=8080"
+                sh "oc expose svc/angular-app --port=8080"
             }
         }
     }
