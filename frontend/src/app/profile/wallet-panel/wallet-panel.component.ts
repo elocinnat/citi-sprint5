@@ -9,8 +9,7 @@ import { RestService } from 'src/app/rest-services';
 })
 export class WalletPanelComponent implements OnInit {
 
-  @Input()
-  currency: any;
+  @Input() currency!: any;
 
   withdrawDeposit: any;
   amount: any;
@@ -20,7 +19,7 @@ export class WalletPanelComponent implements OnInit {
     this.amount = ""
   }
 
-  makeDeposit(){
+  makeTransaction(){
     // take in type (withdraw or deposit), amt ($$ to add or delete)
     
     let data = {
@@ -29,10 +28,29 @@ export class WalletPanelComponent implements OnInit {
     }
     console.log("making deposit", data)
 
-    // this.restService.postDeposit(data).subscribe()
-  }
-  makeWithdraw(){
+    this.restService.postTransaction(data)
+                    .subscribe(
+                      (response: any) => {
+                        console.log(response)
 
+                        if (response == 200) {
+                          console.log("success yay")
+                        } else {
+                          console.log("UR FAILURE")
+                        }
+
+                        this.withdrawDeposit = "BUY"
+                        this.amount = ""
+                      },
+
+                      (error: any) => {
+                        
+                        console.log(error)
+                        this.withdrawDeposit = "BUY"
+                        this.amount = ""
+
+                      }
+                    )
   }
 
   ngOnInit(): void {

@@ -41,6 +41,11 @@ export class RestService {
         return this.http.post<any>(url, data)
     }
 
+    postTransaction(data:any): any {
+        let url:string = this.backendUrl + "/user/wallet-transaction"
+        return this.http.post<any>(url, data)
+    }
+
     getStockList(): any {
         // return this.http.get(this.pythonBackend + "/stock/search")
         return this.http.get("https://api.jsonbin.io/b/61285612076a223676b1cb98/1")

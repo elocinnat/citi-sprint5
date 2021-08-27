@@ -52,6 +52,7 @@ public class UserController {
 
         String type = requestBody.getType();
         double quantity = requestBody.getQty();
+        console.log(type)
         try {
             User user = userRepository.findThisUserById("demo");
             if (type.toLowerCase().equals("deposit")){
