@@ -1,4 +1,7 @@
-<table mat-table [dataSource]="data" class="mat-elevation-z8" style="width:100%">
+<table mat-table [dataSource]="data" 
+    class="mat-elevation-z8" 
+    style="width:100%"
+    *ngIf="data">
 
     <ng-container *ngFor="let header of headers" [matColumnDef]="header">
 
