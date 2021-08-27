@@ -1,10 +1,6 @@
-<<<<<<< HEAD
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { RestService } from 'src/app/rest-services';
-=======
-import { Component, OnInit } from '@angular/core';
->>>>>>> new_dn_backend
 
 @Component({
   selector: 'app-wallet-panel',
@@ -13,7 +9,6 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WalletPanelComponent implements OnInit {
 
-<<<<<<< HEAD
   @Input()
   currency: any;
 
@@ -39,9 +34,6 @@ export class WalletPanelComponent implements OnInit {
   makeWithdraw(){
 
   }
-=======
-  constructor() { }
->>>>>>> new_dn_backend
 
   ngOnInit(): void {
   }

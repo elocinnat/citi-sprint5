@@ -22,11 +22,7 @@
             <td>
                 <span class="rejected-state" *ngIf="trade.state === 'REJECTED'">{{ trade.state }}</span>
                 <span class="filled-state" *ngIf="trade.state === 'FILLED'">{{ trade.state }}</span>
-<<<<<<< HEAD
                 <span *ngIf="trade.state !== 'FILLED' && trade.state !== 'REJECTED'">{{ trade.state }}</span>
-=======
-                <!-- <span class="processing-state" *ngIf="trade.state !== 'FILLED' || trade.state !== 'REJECTED'">{{ trade.state }}</span> -->
->>>>>>> new_dn_backend
             </td>
         </tr>
     </tbody>
