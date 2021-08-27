@@ -1,20 +1,36 @@
-<div class="user-info grid-container">
-    <div class="user-profile-header container shadow left">
-        <img class="avatar-icon" src="assets/svg/avatar-icon.svg" alt="Avatar icon">
-        <div class="user-profile-text">
-            <h6>{{fullName}}</h6>
-            <div class="verified-user-text">
-                <span>Verified User</span>
-                <img class="verified-icon" src="assets/svg/verified-tick.svg" alt="Verified Icon">
-            </div>
+<div class="user-info">
 
+    <!-- left -->
+    <div class="container shadow">
+        <div class="user-profile-header">
+
+            <img class="avatar-icon" 
+                src="assets/svg/avatar-icon.svg"
+                alt="Avatar icon">
+            
+            <div class="user-profile-text">
+
+                <h5 class="fullname">
+                    {{fullName}}
+                </h5>
+                
+                <div class="verified-user-text">
+                    <span>Verified User</span>
+
+                    <img class="verified-icon"
+                        src="assets/svg/verified-tick.svg"
+                        alt="Verified Icon">
+                </div>
+            </div>
         </div>
     </div>
 
-    <div class="wallet container shadow right">
-        <span>Current Balance </span>
+    <!-- right -->
+    <div class="container shadow balance">
+        <h5>Current Balance </h5>
         <h6 class="currency-font">{{currency | currency}}</h6>
-
+        
+        <br>
         
         <!-- buy sell button toggle -->
         <mat-button-toggle-group name="withdrawDeposit">
@@ -27,7 +43,7 @@
         <p>Enter Amount (USD):</p>
 
         <mat-form-field>
-            <input matInput placeholder="Amount">
+            <input class="amount" matInput placeholder="Amount">
         </mat-form-field>
 
         <br><br>
@@ -35,5 +51,7 @@
         <button mat-stroked-button class="button" >
             Proceed
         </button>
+
+        <br>
     </div>
 </div>

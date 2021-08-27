@@ -1,13 +1,25 @@
 <div class="profile-page container-large">
-    <h5>Profile Overview</h5>
-    <div class="user-info">
-        <app-user-info [currency] = "currency"></app-user-info>
+
+    <!-- <h5>Profile Overview</h5> -->
+    
+    <div class="grid-container container">
+        <div class="user-info left">
+            <app-user-info [currency] = "currency"></app-user-info>
+        </div>
+
+        <div class="user-holdings shadow container right">
+            
+            <h5>Overview of holdings</h5>
+
+            <app-pie-chart [data]= "[pieData]"></app-pie-chart>
+
+            <br>
+
+            <app-user-holdings [userAssets] = "userAsset"></app-user-holdings>
+        </div>
     </div>
-    <div class="user-holdings shadow container">
-        <h5>Overview of holdings</h5>
-        <app-pie-chart [data]= "[pieData]"></app-pie-chart>
-        <app-user-holdings [userAssets] = "userAsset"></app-user-holdings>
-    </div>
+
+    
     <div class="trade-status shadow container">
         <app-trade-status [userStatus] = "userHist"></app-trade-status>
     </div>

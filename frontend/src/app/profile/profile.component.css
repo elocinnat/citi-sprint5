@@ -1,9 +1,21 @@
 .profile-page > *{
   margin-bottom: 30px;
 }
+
 .grid-container {
   display: grid;
-  grid-template-columns: 33% 67%;
+  grid-template-columns: 33% 66%;
   grid-gap: 16px;
 }
 
+.left {
+  grid-column: 1;
+}
+
+.right {
+  grid-column: 2;
+}
+
+.grid-container.container {
+  padding:0px;
+}
