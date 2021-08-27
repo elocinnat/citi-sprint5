@@ -34,21 +34,23 @@ public class StockInfoServiceImpl implements StockInfoService{
     private String APIHost;
     private String APIKey;
     private String historicalUrl;
-
+    int numberOfHistoricalDays;
 
 
     public StockInfoServiceImpl(@Value("${YahooCompanySummaryUrl}") String summaryUrl,
                                 @Value("${RapidAPIHost}") String APIHost,
                                 @Value("${RapidAPIKey}") String APIKey,
-                                @Value("${YahooHistoricalDataUrl}") String historicalUrl) {
+                                @Value("${YahooHistoricalDataUrl}") String historicalUrl,
+                                @Value("${HistoricalDays}") int numberOfHistoricalDays) {
         this.APIHost = APIHost;
         this.APIKey = APIKey;
         this.summaryUrl = summaryUrl;
         this.historicalUrl=historicalUrl;
+        this.numberOfHistoricalDays=numberOfHistoricalDays;
     }
 
 
-    public void getResponseBody(String stock) throws IOException {
+    public void getResponseBody(String stock){
         OkHttpClient client = new OkHttpClient();
         String url =  summaryUrl + stock;
         Request request = new Request.Builder()
@@ -58,11 +60,16 @@ public class StockInfoServiceImpl implements StockInfoService{
                 .addHeader("x-rapidapi-key", APIKey)
                 .build();
 
-        Response response = client.newCall(request).execute();
-        responseJson = new JSONObject(response.body().string());
+        Response response = null;
+        try {
+            response = client.newCall(request).execute();
+            responseJson = new JSONObject(response.body().string());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
-    public List<HistoricalItem> getHistoricalData(String stock) throws IOException {
+    public List<HistoricalItem> getHistoricalData(String stock){
         OkHttpClient client = new OkHttpClient();
         String url =  historicalUrl + stock;
         Request request = new Request.Builder()
@@ -72,15 +79,21 @@ public class StockInfoServiceImpl implements StockInfoService{
                 .addHeader("x-rapidapi-key", APIKey)
                 .build();
 
-        Response response = client.newCall(request).execute();
-        responseJson = new JSONObject(response.body().string());
+        Response response = null;
+        try {
+            response = client.newCall(request).execute();
+            responseJson = new JSONObject(response.body().string());
+            log.info(responseJson.toString());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return getPastYearPrices(responseJson);
     }
 
     public List<HistoricalItem> getPastYearPrices(JSONObject json){
         List<HistoricalItem> items = new ArrayList<HistoricalItem>();
         JSONArray prices = new JSONArray(responseJson.getJSONArray("prices").toString());
-        for (int i = 0; i < 260; i++) {
+        for (int i = 0; i < numberOfHistoricalDays; i++) {
             try {
                 JSONObject thisDay = prices.getJSONObject(i);
                 long timestamp = thisDay.getLong("date");

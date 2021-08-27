@@ -5,7 +5,9 @@ import com.hackathon.demo.entity.Trade;
 import com.hackathon.demo.entity.User;
 import com.hackathon.demo.repository.AssetRepository;
 import com.hackathon.demo.repository.TradeRepository;
+import com.hackathon.demo.repository.UserRepository;
 import com.hackathon.demo.service.TradeServiceImpl;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Repository;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
+@Slf4j
 @Controller
 public class UserController {
     @Autowired
@@ -22,7 +25,7 @@ public class UserController {
     private AssetRepository assetRepository;
 
     @Autowired
-    private User user = new User();
+    private UserRepository userRepository;
 
     @Autowired
     private TradeServiceImpl tradeService;
@@ -30,10 +33,9 @@ public class UserController {
     @GetMapping("/user/history")
     @ResponseBody
     public Iterable<Trade> getUserAllTrades(){
-        return tradeRepository.findAll();
+        return tradeRepository.findAllInDesc();
     }
 
-    @CrossOrigin("*")
     @GetMapping("/user/asset")
     @ResponseBody
     public Iterable<Asset> getUserAssets(){
@@ -43,6 +45,6 @@ public class UserController {
     @GetMapping("/user")
     @ResponseBody
     public double getUserCurrency(){
-        return user.currency;
+        return userRepository.findThisUserById("demo").getCurrency();
     }
 }

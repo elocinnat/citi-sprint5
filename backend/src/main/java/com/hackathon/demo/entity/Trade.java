@@ -32,4 +32,17 @@ public class Trade {
     private int quantity;
     private double price;
 
+    @Override
+    public String toString() {
+        return "Trade{" +
+                "_id=" + _id +
+                ", created=" + created +
+                ", state=" + state +
+                ", type=" + type +
+                ", ticker='" + ticker + '\'' +
+                ", name='" + name + '\'' +
+                ", quantity=" + quantity +
+                ", price=" + price +
+                '}';
+    }
 }

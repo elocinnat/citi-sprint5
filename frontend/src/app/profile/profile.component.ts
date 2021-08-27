@@ -31,7 +31,11 @@ export class ProfileComponent implements OnInit {
     );
 
     this.restService.getUserHist().subscribe(
+<<<<<<< HEAD
       (data: any) => this.userHist = data.reverse(),
+=======
+      (data: any) => this.userHist = data,
+>>>>>>> new_dn_backend
       (err: any) => console.log("Error")
     )
 

@@ -7,7 +7,12 @@ import {Observable} from "rxjs";
 })
 export class RestService {
     
+<<<<<<< HEAD
     private backendUrl = "http://localhost:8080";
+=======
+    private backendUrl = "http://spring-boot:8081";
+
+>>>>>>> new_dn_backend
 
     constructor(private http: HttpClient) {}
 

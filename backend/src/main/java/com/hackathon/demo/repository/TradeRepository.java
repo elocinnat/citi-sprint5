@@ -11,4 +11,7 @@ import java.util.List;
 public interface TradeRepository extends CrudRepository<Trade,Integer>{
     @Query(value = "SELECT * FROM trade WHERE state=:mystate", nativeQuery = true)
     List<Trade> findByState(@Param("mystate") String state);
+
+    @Query(value = "SELECT * FROM trade ORDER BY _id DESC", nativeQuery = true)
+    List<Trade> findAllInDesc();
 }

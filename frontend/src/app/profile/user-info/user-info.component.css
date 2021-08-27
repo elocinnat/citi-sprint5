@@ -3,7 +3,13 @@
     justify-content: space-between;
 }
 
+<<<<<<< HEAD
 
+=======
+.currency-font{
+    color: #118C4F;
+}
+>>>>>>> new_dn_backend
 
 .avatar-icon{
     margin: 5% 10% 0 10%;
