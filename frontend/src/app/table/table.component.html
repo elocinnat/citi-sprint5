@@ -6,11 +6,15 @@
     <ng-container *ngFor="let header of headers" [matColumnDef]="header">
 
         <th mat-header-cell *matHeaderCellDef> 
-            {{header}}
+            {{header | titlecase}}
         </th>
 
         <td mat-cell *matCellDef="let element" [class]="header">
-            {{element[header]}} 
+            <span *ngIf="header == 'valuation' || header == 'price'; else elseBlock">
+                {{element[header] | currency}} 
+            </span>
+            <ng-template #elseBlock>{{element[header]}}</ng-template>
+            
         </td>
 
     </ng-container>

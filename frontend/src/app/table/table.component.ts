@@ -8,15 +8,15 @@ import { Component, Input, OnInit } from '@angular/core';
 export class TableComponent implements OnInit {
 
   @Input() data!: any;
-
-  headers: any;
+  @Input() headers? :any
 
   constructor() { }
 
   ngOnInit(): void {
-    
-    this.headers = Object.keys(this.data[0]);
     console.log(this.data)
+    if (!this.headers) {
+      this.headers = Object.keys(this.data[0]);
+    }
   }
 
 }

@@ -35,11 +35,11 @@ export class StatusOverviewComponent implements OnInit {
 
   ngOnInit(): void {
     this.restService.getUserHist().subscribe(
-      (data: any) => this.recentTrades = data,
+      (data: any) => this.recentTrades = data.slice(0, 4),
       (err: any) => console.log("Error")
     )
     this.restService.getUserAsset().subscribe(
-      (data: any) => this.holdings = data,
+      (data: any) => this.holdings = data.slice(0, 4),
       (err: any) => console.log("Error")
     )
   }
