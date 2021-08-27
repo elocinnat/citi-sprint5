@@ -28,7 +28,7 @@ export class StatusOverviewComponent implements OnInit {
   //   {symbol: "NFLX", price: 500, type: "Buy", status: "Filled"},
   // ]
 
-  displayedRecentTradesColumns: any = ["ticker", "price", "type", "status"]
+  // displayedRecentTradesColumns: any = ["ticker", "price", "type", "status"]
 
 
   constructor(private restService: RestService) { }
@@ -36,6 +36,10 @@ export class StatusOverviewComponent implements OnInit {
   ngOnInit(): void {
     this.restService.getUserHist().subscribe(
       (data: any) => this.recentTrades = data,
+      (err: any) => console.log("Error")
+    )
+    this.restService.getUserAsset().subscribe(
+      (data: any) => this.holdings = data,
       (err: any) => console.log("Error")
     )
   }
