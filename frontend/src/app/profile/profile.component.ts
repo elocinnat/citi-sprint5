@@ -31,7 +31,7 @@ export class ProfileComponent implements OnInit {
     );
 
     this.restService.getUserHist().subscribe(
-      (data: any) => this.userHist = data.reverse(),
+      (data: any) => this.userHist = data,
       (err: any) => console.log("Error")
     )
 
