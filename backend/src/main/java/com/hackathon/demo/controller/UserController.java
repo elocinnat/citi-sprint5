@@ -33,7 +33,7 @@ public class UserController {
     @GetMapping("/user/history")
     @ResponseBody
     public Iterable<Trade> getUserAllTrades(){
-        return tradeRepository.findAll();
+        return tradeRepository.findAllInDesc();
     }
 
     @GetMapping("/user/asset")
