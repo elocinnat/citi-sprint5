@@ -215,7 +215,7 @@ public class TradeServiceImpl implements TradeService{
         return price*qty;
     }
 
-    @Scheduled(fixedRateString = "${scheduleRateMs:10000}")
+    @Scheduled(fixedRateString = "${scheduleRateMs:5000}")
     @Override
     public void processTrades(){
         findTradesForFilling();

@@ -17,5 +17,6 @@ com\hackathon\demo\entity\TradeRequestBody.class
 com\hackathon\demo\configuration\WebConfig$1.class
 com\hackathon\demo\repository\AssetRepository.class
 com\hackathon\demo\service\StockInfoService.class
+com\hackathon\demo\repository\UserRepository.class
 com\hackathon\demo\entity\User.class
 com\hackathon\demo\service\TradeServiceImpl.class
