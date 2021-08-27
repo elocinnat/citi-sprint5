@@ -3,7 +3,6 @@ import { RestService } from 'src/app/rest-services';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogsComponent } from './dialogs/dialogs.component';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-trade-panel',
@@ -36,7 +35,7 @@ export class TradePanelComponent implements OnInit {
     this.dialog.closeAll();
   }
 
-  openSnackBar(message: string, action: string) {
+  openSnackBar(message: string) {
     this._snackBar.open(message)
   }
 
@@ -57,7 +56,7 @@ export class TradePanelComponent implements OnInit {
       return
     }
 
-    this.openSnackBar("Processing your trade", "close")
+    this.openSnackBar("Processing your trade")
 
     this.restService.postTrade(data)
                     .subscribe(

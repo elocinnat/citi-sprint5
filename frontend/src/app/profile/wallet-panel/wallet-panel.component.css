@@ -1,3 +1,15 @@
 .currency-font{
     color: #118C4F;
 }
+
+mat-button-toggle-group {
+    width: 100%
+}
+
+mat-button-toggle {
+    width: 50%;
+}
+
+mat-form-field {
+    width: 100%;
+}

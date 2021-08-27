@@ -1,6 +1,7 @@
 import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
 import { RestService } from 'src/app/rest-services';
+import { MatSnackBar } from '@angular/material/snack-bar';
 
 @Component({
   selector: 'app-wallet-panel',
@@ -14,9 +15,17 @@ export class WalletPanelComponent implements OnInit {
   withdrawDeposit: any;
   amount: any;
   
-  constructor(private restService: RestService) { 
+  constructor(private restService: RestService, private _snackBar: MatSnackBar) { 
     this.withdrawDeposit = "DEPOSIT"
     this.amount = ""
+  }
+
+  openSnackBar(message: string) {
+    this._snackBar.open(message)
+  }
+
+  openSnackBarAction(message: string, action: string) {
+    this._snackBar.open(message, action)
   }
 
   makeTransaction(){
@@ -26,7 +35,10 @@ export class WalletPanelComponent implements OnInit {
       "type": this.withdrawDeposit,
       qty: parseFloat(this.amount)
     }
-    console.log("making deposit", data)
+
+    console.log(this.withdrawDeposit)
+
+    this.openSnackBar(`Processing your ${this.withdrawDeposit.toLowerCase()}`)
 
     this.restService.postTransaction(data)
                     .subscribe(
@@ -39,6 +51,9 @@ export class WalletPanelComponent implements OnInit {
                           console.log("UR FAILURE")
                         }
 
+                        this._snackBar.dismiss()
+                        this.openSnackBarAction(this.withdrawDeposit.toLowerCase() + " success!", "close")
+
                         this.withdrawDeposit = "BUY"
                         this.amount = ""
                       },
@@ -46,6 +61,10 @@ export class WalletPanelComponent implements OnInit {
                       (error: any) => {
                         
                         console.log(error)
+
+                        this._snackBar.dismiss()
+                        this.openSnackBarAction(this.withdrawDeposit.toLowerCase() + " failed", "close")
+
                         this.withdrawDeposit = "BUY"
                         this.amount = ""
 
