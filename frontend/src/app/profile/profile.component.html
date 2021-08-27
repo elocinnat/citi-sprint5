@@ -1,8 +1,8 @@
-<div class="profile-page container-large">
+<div class="profile-page container-main">
 
     <!-- <h5>Profile Overview</h5> -->
     
-    <div class="grid-container container">
+    <div class="grid-container">
         <div class="user-info left">
             <app-user-info [currency] = "currency"></app-user-info>
         </div>
@@ -20,8 +20,10 @@
     </div>
 
     
-    <div class="trade-status shadow container">
-        <app-trade-status [userStatus] = "userHist"></app-trade-status>
+    <div class="trade-status shadow">
+        <div class="container-main">
+            <app-trade-status [userStatus] = "userHist"></app-trade-status>
+        </div>
     </div>
 
 </div>
