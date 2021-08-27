@@ -1,4 +1,7 @@
-<h5>Status of trades</h5> 
+<br>
+<h5>Status of trades</h5>
+<br>
+
 <table class="table table-striped mat-elevation-z8 table-condensed">
     <thead>
         <tr>
@@ -9,10 +12,12 @@
             <th [appSort]="userStatus" data-order="desc" scope="col" data-name="quantity" scope="col">Quantity</th>
             <th [appSort]="userStatus" data-order="desc" scope="col" data-name="price" scope="col">Price</th>
             <th [appSort]="userStatus" data-order="desc" scope="col" data-name="state" scope="col">Status</th>
+            <th></th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let trade of userStatus">
+
             <td>{{ trade.created  | date: 'short'}}</td>
             <td>{{ trade.ticker }}</td>
             <td>{{ trade.name }}</td>
@@ -24,6 +29,17 @@
                 <span class="filled-state" *ngIf="trade.state === 'FILLED'">{{ trade.state }}</span>
                 <span *ngIf="trade.state !== 'FILLED' && trade.state !== 'REJECTED'">{{ trade.state }}</span>
             </td>
+
+            <td>
+                <button
+                    *ngIf="trade"
+                    class="trade-button"
+                    mat-stroked-button
+                    [routerLink]="'/stock/' + trade.ticker">
+                    Trade
+                </button>
+            </td>
+
         </tr>
     </tbody>
 </table>

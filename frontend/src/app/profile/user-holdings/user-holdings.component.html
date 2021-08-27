@@ -9,6 +9,7 @@
       <th [appSort]="userAssets" data-order="desc" scope="col" data-type="date" data-name="realTimePrice" scope="col">Real Time Price</th>
       <th [appSort]="userAssets" data-order="desc" scope="col" data-type="date" data-name="valuation" scope="col">Total Valuation</th>
       <th [appSort]="userAssets" data-order="desc" scope="col" data-type="date" data-name="pnl" scope="col">Profit/Loss (%)</th>
+      <th></th>
     </tr>
     </thead>
     <tbody>
@@ -20,6 +21,17 @@
       <td>{{ stock.realTimePrice | currency }}</td>
       <td>{{ stock.valuation | currency }}</td>
       <td>{{ stock.pnl }}</td>
+
+      <td>
+        <button 
+          *ngIf="stock"
+          mat-stroked-button
+          [routerLink]="'/stock/' + stock.ticker"
+          class="trade-button">
+          Trade
+        </button>
+      </td>
+
     </tr>
     </tbody>
   </table>
