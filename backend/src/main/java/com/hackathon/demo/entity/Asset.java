@@ -22,6 +22,7 @@ public class Asset {
     private String name;
     private int qty;
     private double tradedPrice;
+    private double realTimePrice;
     private double valuation;
     private String pnl;
 }

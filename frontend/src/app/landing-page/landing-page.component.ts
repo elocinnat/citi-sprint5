@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { RestService } from '../rest-services';
 
 @Component({
   selector: 'app-landing-page',
@@ -10,7 +9,7 @@ export class LandingPageComponent implements OnInit {
   userAsset: any;
   userHist: any;
 
-  constructor(private restService: RestService) { }
+  constructor() { }
 
   ngOnInit(): void {
     // this.restService.getUserAsset().subscribe(
@@ -25,7 +24,5 @@ export class LandingPageComponent implements OnInit {
     //   (err: any) => console.log("Error")
     // )
   }
-
-  name = "wuhu";
 
 }

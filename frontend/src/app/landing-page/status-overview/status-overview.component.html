@@ -14,7 +14,8 @@
 
       <h3 class="title">Recent Trades</h3>
 
-      <app-table [data]="recentTrades"></app-table>
+    
+      <app-table [data]="recentTrades" *ngIf="recentTrades"></app-table>
 
     </div>
 
