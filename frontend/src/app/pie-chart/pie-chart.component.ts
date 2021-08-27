@@ -21,7 +21,6 @@ export class PieChartComponent implements OnInit {
   // };
   public pieLayout = {
     autosize: true, 
-    title: 'Overview of Holdings',
     showlegend: false
   }
 

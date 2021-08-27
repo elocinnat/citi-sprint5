@@ -12,6 +12,15 @@ export class ProfileComponent implements OnInit {
   userHist: any;
   userAsset: any;
 
+  pieData: any = {
+    values: [],
+    labels: [],
+    textinfo: "label+percent",
+    textposition: "outside",
+    automargin: true,
+    type: 'pie'
+  }
+
   constructor(private restService: RestService) { }
 
   ngOnInit(): void {
@@ -27,7 +36,13 @@ export class ProfileComponent implements OnInit {
     )
 
     this.restService.getUserAsset().subscribe(
-      (data: any) => this.userAsset = data,
+      (data: any) => {
+        this.userAsset = data;
+        for (var i = 0; i < data.length; i++) {
+          this.pieData.values.push(data[i].valuation);
+          this.pieData.labels.push(data[i].ticker)
+        }
+      },
       (err: any) => console.log("Error")
     )
   }

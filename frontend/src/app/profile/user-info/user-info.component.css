@@ -8,9 +8,6 @@
 .avatar-icon{
     width: 120px;
 }
-.user-profile-header{
-    display: flex;
-}
 .user-profile-text{
     margin: 25px;
 }
@@ -23,3 +20,11 @@
 .verified-icon{
     margin-left: 5px;
 }
+
+.grid-container {
+    display: grid;
+    grid-template-columns: 33% 67%;
+    grid-gap: 16px;
+}
+.left {grid-column:1;}
+.right {grid-column: 2;}

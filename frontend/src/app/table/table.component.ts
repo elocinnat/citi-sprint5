@@ -14,6 +14,7 @@ export class TableComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    console.log(this.data)
     this.headers = Object.keys(this.data[0]);
   }
 
