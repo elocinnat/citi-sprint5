@@ -1,1 +1,25 @@
-<p>wallet-panel works!</p>
+<h6 class="currency-font">{{currency | currency}}</h6>
+
+<br>
+
+<!-- buy sell button toggle -->
+<mat-button-toggle-group name="withdrawDeposit">
+    <mat-button-toggle checked="true" value="DEPOSIT">Deposit</mat-button-toggle>
+    <mat-button-toggle value="WITHDRAW">Withdraw</mat-button-toggle>
+</mat-button-toggle-group>
+
+<br><br>
+
+<p>Enter Amount (USD):</p>
+
+<mat-form-field>
+    <input class="amount" matInput placeholder="Amount">
+</mat-form-field>
+
+<br><br>
+
+<button mat-stroked-button class="button">
+    Proceed
+</button>
+
+<br>
