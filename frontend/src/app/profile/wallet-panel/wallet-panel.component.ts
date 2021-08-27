@@ -24,7 +24,7 @@ export class WalletPanelComponent implements OnInit {
     
     let data = {
       "type": this.withdrawDeposit,
-      amt: parseInt(this.amount)
+      qty: parseFloat(this.amount)
     }
     console.log("making deposit", data)
 
