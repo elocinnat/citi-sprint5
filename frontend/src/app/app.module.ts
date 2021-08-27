@@ -48,6 +48,8 @@ import { GainerLoserRowComponent } from './landing-page/top-gainers-losers/gaine
 import { TradePanelComponent } from './stock/trade-panel/trade-panel.component';
 import { PieChartComponent } from './pie-chart/pie-chart.component';
 import { DialogsComponent } from './stock/trade-panel/dialogs/dialogs.component';
+import { WalletPanelComponent } from './profile/wallet-panel/wallet-panel.component';
+import { SortDirective } from './directive/sort.directive';
 
 PlotlyModule.plotlyjs = PlotlyJS;
 
@@ -81,6 +83,8 @@ const routes: Routes = [
     TradePanelComponent,
     PieChartComponent,
     DialogsComponent,
+    WalletPanelComponent,
+    SortDirective,
 
   ],
   

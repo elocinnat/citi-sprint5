@@ -1,25 +1,44 @@
 .user-info{
-    display: flex;
+    /* display: flex; */
     justify-content: space-between;
 }
+
 .currency-font{
     color: #118C4F;
 }
+
 .avatar-icon{
-    width: 120px;
+    margin: 5% 10% 0 10%;
+    width: 80%;
 }
-.user-profile-header{
-    display: flex;
-}
+
 .user-profile-text{
-    margin: 25px;
+    margin: 5%;
 }
+
 .verified-user-text{
     height: 21px;
     display: flex;
     font-size: large;
     color: lightslategrey;
 }
+
 .verified-icon{
     margin-left: 5px;
+}
+
+.balance {
+    padding: 10%
+}
+
+mat-button-toggle-group {
+    width: 100%;
+}
+
+mat-button-toggle {
+    width: 50%;
+}
+
+mat-form-field {
+    width: 100%;
 }

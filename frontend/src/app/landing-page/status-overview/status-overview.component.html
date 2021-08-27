@@ -4,7 +4,7 @@
 
       <h3 class="title">My holdings</h3>
 
-      <app-table [data]="holdings"></app-table>
+      <app-table [data]="holdings" [headers]="['ticker', 'qty', 'valuation', 'pnl']" *ngIf="holdings"></app-table>
 
     </div>
 
@@ -14,7 +14,8 @@
 
       <h3 class="title">Recent Trades</h3>
 
-      <app-table [data]="recentTrades"></app-table>
+    
+      <app-table [data]="recentTrades" [headers]="['ticker', 'price', 'type', 'state']" *ngIf="recentTrades"></app-table>
 
     </div>
 

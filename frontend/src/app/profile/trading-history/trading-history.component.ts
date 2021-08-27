@@ -32,6 +32,7 @@ interface TradeHist{
 //   },
 // ]
 
+
 @Component({
   selector: 'app-trading-history',
   templateUrl: './trading-history.component.html',
@@ -44,10 +45,22 @@ export class TradingHistoryComponent implements OnInit {
   
   @Input()
   userHist: any;
+  
 
   constructor() { }
 
   ngOnInit(): void {
+    // setTimeout(() => {
+    //   // let headers: Object.keys(this.userHist[0])
+    //   //if futhermore we can show the "arrow"
+    //   const header = Object.keys(this.userHist[0]).find(x => x.sortable == 'created');
+    //   header.direction = 'asc';
+
+    //   //simply call the function onSort
+    //   this.onSort({ column: 'name', direction: 'asc' });
+    // });
   }
+
+  
 
 }

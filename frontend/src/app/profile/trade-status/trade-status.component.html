@@ -2,21 +2,23 @@
 <table class="table table-striped mat-elevation-z8 table-condensed">
     <thead>
         <tr>
-            <th scope="col">Symbol</th>
-            <th scope="col">Name</th>
-            <th scope="col">Type</th>
-            <th scope="col">Quantity</th>
-            <th scope="col">Price</th>
-            <th scope="col">Status</th>
+            <th [appSort]="userStatus" data-order="desc" scope="col" data-type="date" data-name="created" scope="col">Date</th>
+            <th [appSort]="userStatus" data-order="desc" scope="col" data-name="ticker" scope="col">Symbol</th>
+            <th [appSort]="userStatus" data-order="desc" scope="col" data-name="name" scope="col">Name</th>
+            <th [appSort]="userStatus" data-order="desc" scope="col" data-name="type" scope="col">Type</th>
+            <th [appSort]="userStatus" data-order="desc" scope="col" data-name="quantity" scope="col">Quantity</th>
+            <th [appSort]="userStatus" data-order="desc" scope="col" data-name="price" scope="col">Price</th>
+            <th [appSort]="userStatus" data-order="desc" scope="col" data-name="state" scope="col">Status</th>
         </tr>
     </thead>
     <tbody>
         <tr *ngFor="let trade of userStatus">
+            <td>{{ trade.created  | date: 'short'}}</td>
             <td>{{ trade.ticker }}</td>
             <td>{{ trade.name }}</td>
             <td>{{ trade.type }}</td>
             <td>{{ trade.quantity }}</td>
-            <td>$ {{ trade.price | number}}</td>
+            <td>{{ trade.price | currency}}</td>
             <td>
                 <span class="rejected-state" *ngIf="trade.state === 'REJECTED'">{{ trade.state }}</span>
                 <span class="filled-state" *ngIf="trade.state === 'FILLED'">{{ trade.state }}</span>

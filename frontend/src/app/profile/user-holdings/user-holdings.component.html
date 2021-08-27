@@ -1,16 +1,14 @@
-<h5>Overview of holdings</h5>
-<!-- potential pie chart here -->
-<app-pie-chart [data]= "[pieData]"></app-pie-chart>
 
 <table class="table table-striped mat-elevation-z8 table-condensed">
     <thead>
     <tr>
-      <th scope="col">Symbol</th>
-      <th scope="col">Name</th>
-      <th scope="col">Quantity of Stocks</th>
-      <th scope="col">Stock Price</th>
-      <th scope="col">Total Valuation</th>
-      <th scope="col">Profit/Loss (%)</th>
+      <th [appSort]="userAssets" data-order="desc" scope="col" data-type="date" data-name="ticker" scope="col">Symbol</th>
+      <th [appSort]="userAssets" data-order="desc" scope="col" data-type="date" data-name="name" scope="col">Name</th>
+      <th [appSort]="userAssets" data-order="desc" scope="col" data-type="date" data-name="qty" scope="col">Quantity of Stocks</th>
+      <th [appSort]="userAssets" data-order="desc" scope="col" data-type="date" data-name="tradedPrice" scope="col">Traded Price</th>
+      <th [appSort]="userAssets" data-order="desc" scope="col" data-type="date" data-name="realTimePrice" scope="col">Real Time Price</th>
+      <th [appSort]="userAssets" data-order="desc" scope="col" data-type="date" data-name="valuation" scope="col">Total Valuation</th>
+      <th [appSort]="userAssets" data-order="desc" scope="col" data-type="date" data-name="pnl" scope="col">Profit/Loss (%)</th>
     </tr>
     </thead>
     <tbody>
@@ -18,8 +16,9 @@
       <td>{{ stock.ticker }}</td>
       <td>{{ stock.name }}</td>
       <td>{{ stock.qty }}</td>
-      <td>$ {{ stock.tradedPrice | number }}</td>
-      <td>$ {{ stock.valuation | number }}</td>
+      <td>{{ stock.tradedPrice | currency }}</td>
+      <td>{{ stock.realTimePrice | currency }}</td>
+      <td>{{ stock.valuation | currency }}</td>
       <td>{{ stock.pnl }}</td>
     </tr>
     </tbody>

@@ -1,4 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
+import { Sort } from 'src/app/util/sort';
 
 interface TradeStatus{
   symbol: string;
@@ -49,6 +50,7 @@ export class TradeStatusComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
