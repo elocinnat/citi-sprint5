@@ -54,6 +54,8 @@ export class WalletPanelComponent implements OnInit {
                         this._snackBar.dismiss()
                         this.openSnackBarAction(this.withdrawDeposit.toLowerCase() + " success!", "close")
 
+                        window.location.reload()
+
                         this.withdrawDeposit = "BUY"
                         this.amount = ""
                       },
