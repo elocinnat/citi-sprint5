@@ -1,4 +1,6 @@
+import { Input } from '@angular/core';
 import { Component, OnInit } from '@angular/core';
+import { RestService } from 'src/app/rest-services';
 
 @Component({
   selector: 'app-wallet-panel',
@@ -7,7 +9,31 @@ import { Component, OnInit } from '@angular/core';
 })
 export class WalletPanelComponent implements OnInit {
 
-  constructor() { }
+  @Input()
+  currency: any;
+
+  withdrawDeposit: any;
+  amount: any;
+  
+  constructor(private restService: RestService) { 
+    this.withdrawDeposit = "DEPOSIT"
+    this.amount = ""
+  }
+
+  makeDeposit(){
+    // take in type (withdraw or deposit), amt ($$ to add or delete)
+    
+    let data = {
+      "type": this.withdrawDeposit,
+      amt: parseInt(this.amount)
+    }
+    console.log("making deposit", data)
+
+    // this.restService.postDeposit(data).subscribe()
+  }
+  makeWithdraw(){
+
+  }
 
   ngOnInit(): void {
   }
