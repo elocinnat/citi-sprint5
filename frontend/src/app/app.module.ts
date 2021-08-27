@@ -21,6 +21,7 @@ import {MatDividerModule} from "@angular/material/divider";
 import {MatIconModule} from "@angular/material/icon";
 import {MatDialogModule} from "@angular/material/dialog";
 import {MatAutocompleteModule} from "@angular/material/autocomplete";
+import {MatSnackBarModule} from "@angular/material/snack-bar";
 
 import { FormControl, ReactiveFormsModule } from "@angular/forms";
 
@@ -105,6 +106,7 @@ const routes: Routes = [
     MatIconModule,
     MatDialogModule,
     MatAutocompleteModule,
+    MatSnackBarModule,
 
     RouterModule.forRoot(routes),
     HttpClientModule,

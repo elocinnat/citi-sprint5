@@ -2,6 +2,8 @@ import { Component, OnInit, Input } from '@angular/core';
 import { RestService } from 'src/app/rest-services';
 import { MatDialog, MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { DialogsComponent } from './dialogs/dialogs.component';
+import { MatSnackBar } from '@angular/material/snack-bar';
+import { stringify } from '@angular/compiler/src/util';
 
 @Component({
   selector: 'app-trade-panel',
@@ -17,7 +19,7 @@ export class TradePanelComponent implements OnInit {
   limitmarket: any;
   quantity: any;
 
-  constructor(private restService: RestService, public dialog: MatDialog) { 
+  constructor(private restService: RestService, public dialog: MatDialog, private _snackBar: MatSnackBar) { 
     this.buysell = "BUY"
     this.limitmarket = "limit"
     this.quantity = ""
@@ -25,13 +27,17 @@ export class TradePanelComponent implements OnInit {
 
   openDialog(data: any): void {
     const dialogRef = this.dialog.open(DialogsComponent, {
-      width: "50%",
+      width: "30%",
       data: data
     })
   }
 
   closeDialog(): void {
     this.dialog.closeAll();
+  }
+
+  openSnackBar(message: string, action: string) {
+    this._snackBar.open(message)
   }
 
   makeTrade() {
@@ -48,18 +54,15 @@ export class TradePanelComponent implements OnInit {
       this.openDialog({
         dialogType: "invalid"
       })
-
       return
     }
 
-    this.openDialog({
-      dialogType: "processing",
-      tradeData: data
-    })
+    this.openSnackBar("Processing your trade", "close")
 
     this.restService.postTrade(data)
                     .subscribe(
                       (response: any) => {
+                        this._snackBar.dismiss()
                         this.closeDialog()
                         console.log(response)
 
@@ -81,6 +84,7 @@ export class TradePanelComponent implements OnInit {
                       },
 
                       (error: any) => {
+                        this._snackBar.dismiss()
                         this.closeDialog()
                         console.log(error)
 
