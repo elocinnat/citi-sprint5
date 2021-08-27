@@ -23,7 +23,7 @@ pipeline {
                 sh "oc new-app ${dockerAngularImageTag} -l version=${version}"
                 sh "oc new-app ${dockerSpringBootImageTag} -l version=${version}"
 		sh "oc expose svc/spring-boot"
-                sh "oc expose svc/angular-app --port=80"
+                sh "oc expose svc/angular-app --port=8080"
             }
         }
     }
