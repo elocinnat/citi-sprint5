@@ -1,4 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.hackathon.demo.StockMarketTradingBackentApplicationTests
 -------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 10.101 s - in com.hackathon.demo.StockMarketTradingBackentApplicationTests
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 29.721 s - in com.hackathon.demo.StockMarketTradingBackentApplicationTests

@@ -7,7 +7,7 @@ import {Observable} from "rxjs";
 })
 export class RestService {
     
-    private backendUrl = "http://localhost:8080";
+    private backendUrl = "http://spring-boot-sprint5webapp.singaporedevops2.conygre.com";
 
     constructor(private http: HttpClient) {}
 
